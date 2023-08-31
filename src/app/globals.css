@@ -1,27 +1,35 @@
+@import url("https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap");
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
-}
-
 body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+  font-family: "Lato", sans-serif;
+}
+
+/*Switch*/
+.switch-container {
+  @apply h-6 w-12 rounded-l-full rounded-r-full bg-gray-200 relative cursor-pointer;
+  box-shadow: inset -1px 1px 5px rgb(0 0 0 / 0.2);
+}
+.switch-container.dark {
+  background-color: rgb(50 50 50);
+  box-shadow: inset -1px 1px 5px rgb(200 200 200 / 0.2);
+}
+
+.switch-child {
+  @apply h-4 w-4 rounded-full bg-ma-off-white  absolute;
+  box-shadow: 2px 0px 3px rgb(0 0 0 / 0.2);
+  top: 50%;
+  left: 4px;
+  right: auto;
+  transform: translateY(-50%);
+}
+
+.switch-container.dark .switch-child {
+  left: auto;
+  right: 4px;
+  box-shadow: -2px 0px 3px rgb(200 200 200 / 0.2);
+  @apply bg-ma-black;
 }
