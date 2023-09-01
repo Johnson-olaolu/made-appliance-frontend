@@ -33,3 +33,17 @@ body {
   box-shadow: -2px 0px 3px rgb(200 200 200 / 0.2);
   @apply bg-ma-black;
 }
+
+/* Footer Menu Title*/
+.footer-menu-title {
+  @apply font-extrabold text-xl text-ma-white relative uppercase whitespace-nowrap;
+}
+.footer-menu-title::after {
+  @apply bg-ma-white;
+  content: "";
+  position: absolute;
+  left: 0;
+  width: 40px;
+  height: 4px;
+  bottom: -4px;
+}
