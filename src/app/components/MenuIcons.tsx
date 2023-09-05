@@ -25,7 +25,7 @@ const MenuIcons = () => {
       </div>
       <div className=" flex gap-2 items-center">
         <div className="relative">
-          <AiOutlineShoppingCart className=" text-ma-text-secondary  dark:text-ma-off-white " size={26} />
+          <AiOutlineShoppingCart className=" text-ma-text-secondary  dark:text-ma-off-white " size={32} />
           <span className=" h-[14px] w-[14px] pb-px rounded-full text-[10px] leading-none font-medium text-ma-white flex items-center justify-center absolute -top-1 -right-1 bg-ma-red">
             2
           </span>
