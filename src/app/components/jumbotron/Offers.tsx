@@ -7,7 +7,7 @@ const Offers = () => {
       <div className=" flex-grow bg-ma-off-white dark:bg-ma-black relative flex p-9 items-center relative">
         <div className="max-w-[230px]">
           <span className=" text-ma-red text-xs font-bold uppercase">SUMMER SALE UPTO 50%</span>
-          <h6 className=" text-ma-text-secondary text-3xl font-bold mb-3">Professional 48″ Gas Cooktop</h6>
+          <h6 className=" text-ma-text-secondary dark:text-ma-off-white text-3xl font-bold mb-3">Professional 48″ Gas Cooktop</h6>
           <p className=" text-xs text-ma-text-primary font-medium mb-7">Save and shoot straight from the bos with three packs of iconic Polaroid </p>
           <a href="" className=" h-12 w-36 flex items-center justify-center text-sm text-ma-white font-bold uppercase bg-ma-light-blue">
             SHOP NOW
