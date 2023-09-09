@@ -5,7 +5,7 @@ import { RxHamburgerMenu } from "react-icons/rx";
 
 const Categories = () => {
   return (
-    <div className=" w-64  shrink-0  flex flex-col">
+    <div className="hidden w-64  shrink-0  sm:flex flex-col">
       <div className=" h-14 shrink-0 w-full flex items-center px-6 gap-3 bg-ma-red">
         <RxHamburgerMenu className="text-ma-white" size={24} />
         <span className="text-sm text-ma-white font-medium">Browse Categories</span>

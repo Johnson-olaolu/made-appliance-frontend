@@ -11,7 +11,7 @@ const TopCategories = () => {
         </p>
       </div>
 
-      <div className=" w-full flex justify-center gap-5">
+      <div className=" w-full flex  gap-5 overflow-x-auto">
         <div className="flex flex-col items-center gap-2 ">
           <div className=" h-32 w-32 rounded-full bg-[#FEEBE7]"></div>
           <span className="text-xs font-medium text-ma-text-primary">Dishwashers</span>

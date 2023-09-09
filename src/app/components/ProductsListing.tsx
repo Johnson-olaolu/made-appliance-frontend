@@ -6,9 +6,9 @@ const tempMenu = ["Popular", "On Sale", "Top", "Reviews"];
 
 const ProductsListing = () => {
   return (
-    <div className="flex gap-5 my-16">
+    <div className="flex flex-col sm:flex-row gap-5 my-16">
       <div className="">
-        <nav className=" items-center flex justify-end mb-7">
+        <nav className=" items-center flex justify-center sm:justify-end mb-7">
           <ul className="flex items-center gap-8">
             {tempMenu.map((offer, idx) => (
               <li className="" key={idx}>
@@ -19,13 +19,13 @@ const ProductsListing = () => {
             ))}
           </ul>
         </nav>
-        <div className=" grid grid-cols-4 gap-5">
+        <div className=" grid grid-cols-2 sm:grid-cols-4 gap-5">
           {[1, 2, 3, 4, 5, 6, 7, 8].map((n) => (
             <ProductCard key={n} />
           ))}
         </div>
       </div>
-      <div className="flex-grow  bg-[#E9F3F2]  py-9 px-7 relative">
+      <div className=" h-96 flex-grow bg-[#E9F3F2]  py-9 px-7 relative">
         <div className="max-w-[148px] ">
           <span className="mb-2 text-[10px] text-ma-light-blue block">Fridges</span>
           <h6 className=" text-xl text-ma-text-secondary font-bold my-3">Insignia™ Convertible Upright Freezer</h6>

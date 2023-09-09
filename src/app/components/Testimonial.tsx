@@ -5,11 +5,11 @@ import { FaQuoteLeft } from "react-icons/fa6";
 const Testimonial = () => {
   return (
     <div className="pt-16 pb-24">
-      <div className="h-80 bg-[#012F6B] relative pt-20 ">
-        <div className="h-32 w-32 bg-ma-light-blue rounded-full absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2 flex items-center justify-center">
+      <div className="h-80 bg-[#012F6B] relative pt-16 sm:pt-20 ">
+        <div className=" scale-75 sm:scale-100 h-32 w-32 bg-ma-light-blue rounded-full absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2 flex items-center justify-center">
           <FaQuoteLeft size={72} className="text-ma-white" />
         </div>
-        <p className="text-center text-ma-white text-2xl font-bold">Hear What Our Customers Have to Say</p>
+        <p className="text-center text-ma-white text-lg sm:text-2xl font-bold">Hear What Our Customers Have to Say</p>
         <div className="mt-8 flex justify-center gap-4">
           <div className="w-56 bg-ma-white dark:bg-ma-black shadow-md">
             <div
@@ -33,7 +33,7 @@ const Testimonial = () => {
               </div>
             </div>
           </div>
-          <div className="w-56 bg-ma-white dark:bg-ma-black shadow-md">
+          <div className="w-56 bg-ma-white dark:bg-ma-black shadow-md hidden sm:block">
             <div
               className="h-32 border-b-8 border-b-ma-text-primary relative "
               style={{
@@ -55,7 +55,7 @@ const Testimonial = () => {
               </div>
             </div>
           </div>
-          <div className="w-56 bg-ma-white dark:bg-ma-black shadow-md">
+          <div className="w-56 bg-ma-white dark:bg-ma-black shadow-md hidden sm:block">
             <div
               className="h-32 border-b-8 border-b-ma-text-primary relative "
               style={{

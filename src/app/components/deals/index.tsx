@@ -3,7 +3,7 @@ import DealOfTheDay from "./DealOfTheDay";
 
 const Deals = () => {
   return (
-    <div className="flex gap-6 items-stretch">
+    <div className="flex gap-6 items-stretch hidden">
       <DealOfTheDay />
       <div className="shrink-0 space-y-6">
         <div className="h-72 w-[356px] py-9 px-7" style={{ background: `url("/images/Mask group4545.png")` }}>

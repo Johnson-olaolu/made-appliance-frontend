@@ -7,11 +7,13 @@ const appSlice = createSlice({
   initialState: {
     v1: {},
     theme: null,
+    screenSize: "Desktop",
     language: "English",
     currency: "USD",
   } as {
     v1: object;
     theme: "dark" | "light" | null;
+    screenSize: "Mobile" | "Tablet" | "Desktop";
     language: Language;
     currency: Currency;
   },
@@ -25,11 +27,14 @@ const appSlice = createSlice({
     changeCurrency(state, { payload }: PayloadAction<Currency>) {
       state.currency = payload;
     },
+    changeScreenSize(state, { payload }: PayloadAction<"Mobile" | "Tablet" | "Desktop">) {
+      state.screenSize = payload;
+    },
     clearStore() {},
   },
 });
 
-export const { clearStore, changeDarkMode, changeLanguage } = appSlice.actions;
+export const { clearStore, changeDarkMode, changeLanguage, changeScreenSize } = appSlice.actions;
 
 const reducers = combineReducers({
   app: appSlice.reducer,

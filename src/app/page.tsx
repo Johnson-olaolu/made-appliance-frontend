@@ -9,20 +9,13 @@ import SpecialDiscount from "./components/SpecialDiscount";
 import ProductsListing from "./components/ProductsListing";
 import TopCategories from "./components/TopCategories";
 import Testimonial from "./components/Testimonial";
+import HomepageHeader from "./components/HomepageHeader";
 
 export default function Home() {
   return (
     <main className=" bg-ma-white dark:bg-ma-grey">
-      <div className="max-w-6xl  mx-auto pt-8 pb-16">
-        <section className=" flex items-center gap-8 mb-7">
-          <div className=" w-64 h-12 shrink-0 relative">
-            <Image fill alt="logo" src="/images/logo.png" className="" />
-          </div>
-          <div className=" flex flex-grow justify-between">
-            <SearchBar />
-            <MenuIcons />
-          </div>
-        </section>
+      <div className="max-w-6xl  px-2 mx-auto pt-0 sm:pt-8 pb-16">
+        <HomepageHeader />
         <Jumbotron />
         <FreeOptions />
         <Deals />

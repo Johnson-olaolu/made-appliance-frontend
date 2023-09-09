@@ -5,7 +5,7 @@ import Switch from "../extras/Switch";
 
 const TopBar = () => {
   return (
-    <section className=" bg-ma-off-white dark:bg-ma-black">
+    <section className=" hidden sm:block bg-ma-off-white dark:bg-ma-black">
       <div className="max-w-6xl mx-auto  h-12 flex items-center justify-between">
         <div className="flex gap-1 items-center text-ma-text-primary dark:text-ma-off-white">
           <AiOutlineShop size={24} />

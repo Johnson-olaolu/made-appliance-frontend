@@ -8,7 +8,7 @@ import { MdPhoneIphone } from "react-icons/md";
 const Footer = () => {
   return (
     <footer className=" py-14 bg-ma-black">
-      <div className="max-w-6xl flex mx-auto gap-x-20">
+      <div className=" px-4 sm:px-0 max-w-6xl flex mx-auto flex-col sm:flex-row gap-x-20 gap-y-10">
         <div className="flex-shrink-0 space-y-6">
           <Image width={288} height={56} alt="logo" src="/images/logo.png" />
           <div className="gap-x-3 flex text-ma-text-primary">
@@ -32,7 +32,7 @@ const Footer = () => {
             </a>
           </div>
         </div>
-        <nav className=" flex-grow justify-between flex gap-12">
+        <nav className=" flex-grow justify-between flex gap-12 flex-col sm:flex-row sm:flex-wrap">
           {tempMenu.map((menuItem, idx) => (
             <div key={idx} className="">
               <h4 className="footer-menu-title">{menuItem.title}</h4>

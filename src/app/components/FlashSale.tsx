@@ -23,9 +23,11 @@ const FlashSale = () => {
           </div>
         </div>
       </div>
-      <div className="flex justify-between items-center">
+      <div className="flex justify-between items-center overflow-x-auto gap-3">
         {[1, 2, 3, 4, 5].map((n) => (
-          <ProductCard key={n} />
+          <div key={n} className="shrink-0">
+            <ProductCard />
+          </div>
         ))}
       </div>
     </div>
