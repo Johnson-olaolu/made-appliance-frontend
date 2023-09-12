@@ -3,12 +3,13 @@ import React from "react";
 
 const DealOfTheDay = () => {
   return (
-    <div className="flex-grow flex p-8 bg-ma-off-white dark:bg-ma-black items-center">
-      <div className="flex-grow">
+    <div className="flex-col sm:flex-row flex-grow flex p-8 bg-ma-off-white dark:bg-ma-black sm:items-center">
+      <div className="flex-grow mb-7 sm:mb-0">
+        <span className="sm:hidden text-xs font-bold text-ma-red p-1 bg-[#FFF1F0] rounded-sm inline-block mb-7">Deal of the day </span>
         <Image src={"/images/image 3uiyn.png"} height={551} width={278} alt="" />
       </div>
       <div className="max-w-[312px] shrink-0">
-        <span className=" text-xs font-bold text-ma-red p-1 bg-[#FFF1F0] rounded-sm inline-block mb-7">Deal of the day </span>
+        <span className=" hidden text-xs font-bold text-ma-red p-1 bg-[#FFF1F0] rounded-sm sm:inline-block mb-7">Deal of the day </span>
         <h6 className=" text-ma-text-secondary dark:text-ma-off-white font-extrabold mb-5 text-3xl">Bottom Refrigerator Stainless Steel</h6>
         <p className="flex items-center gap-4 mb-6">
           <span className="text-ma-red font-bold text-3xl">139.99</span>

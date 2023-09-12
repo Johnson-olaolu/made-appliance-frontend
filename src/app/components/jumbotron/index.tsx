@@ -9,7 +9,7 @@ const Jumbotron = () => {
       <Categories />
       <div className="flex-grow sm:border-t-2 border-[#AEAEAE1A]">
         <nav className=" h-auto  sm:h-14 items-center flex sm:justify-end mb-4">
-          <ul className="flex w-full items-center gap-3 sm:gap-8 flex-wrap justify-between gap-y-2">
+          <ul className="flex w-full items-center gap-3 sm:gap-8 flex-wrap justify-between sm:justify-end gap-y-2">
             {tempOffers.map((offer, idx) => (
               <li className="" key={idx}>
                 <a
