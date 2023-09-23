@@ -5,6 +5,7 @@ import Footer from "./Footer";
 import { useDispatch, useSelector } from "react-redux";
 import { RootState, changeScreenSize } from "@/store/appSlice";
 import { screenSizes } from "@/utils/constants";
+import Header from "./header";
 
 const Layout = ({ children }: { children: React.ReactNode }) => {
   const dispatch = useDispatch();
@@ -48,6 +49,7 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
   return (
     <>
       <TopBar />
+      <Header />
       {children}
       <Footer />
     </>
