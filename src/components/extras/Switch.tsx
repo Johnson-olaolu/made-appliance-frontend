@@ -11,9 +11,26 @@ const Switch = () => {
     dispatch(changeDarkMode(theme === "dark" ? "light" : "dark"));
   };
   return (
-    <div onClick={() => handleThemeChange()} className={`switch-container ${theme}`}>
-      <div className="switch-child"></div>
-    </div>
+    <>
+      <div onClick={() => handleThemeChange()} className={`switch-container ${theme} hidden sm:block`}>
+        <div className="switch-child"></div>
+      </div>
+      <div className="">
+        <select
+          className=" text-ma-text-primary dark:text-ma-off-white bg-transparent cursor-pointer font-medium"
+          name=""
+          id=""
+          onChange={() => handleThemeChange()}
+        >
+          <option selected={theme === "light"} value="Light">
+            Light
+          </option>
+          <option selected={theme === "dark"} value="Dark">
+            Dark
+          </option>
+        </select>
+      </div>
+    </>
   );
 };
 
