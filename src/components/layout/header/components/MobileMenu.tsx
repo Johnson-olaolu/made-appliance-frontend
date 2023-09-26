@@ -15,11 +15,6 @@ const MobileMenu: React.FC<{
   const [ctx, setCtx] = useState(gsap.context(() => {}, mobileMenuRef));
 
   useLayoutEffect(() => {
-    // gsap.to(mobileMenuRef.current, {
-    //   opacity: 100,
-    //   width: "320px",
-    //   duration: 0.5,
-    // });
     ctx.add("entry", () => {
       gsap.to(ctx.selector?.(mobileMenuRef.current), {
         opacity: 100,

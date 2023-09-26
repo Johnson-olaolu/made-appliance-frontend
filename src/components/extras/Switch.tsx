@@ -15,7 +15,7 @@ const Switch = () => {
       <div onClick={() => handleThemeChange()} className={`switch-container ${theme} hidden sm:block`}>
         <div className="switch-child"></div>
       </div>
-      <div className="">
+      <div className="sm:hidden block">
         <select
           className=" text-ma-text-primary dark:text-ma-off-white bg-transparent cursor-pointer font-medium"
           name=""

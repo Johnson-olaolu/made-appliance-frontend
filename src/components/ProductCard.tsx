@@ -2,7 +2,7 @@ import React from "react";
 
 const ProductCard = () => {
   return (
-    <div className=" w-[196px] bg-ma-off-white dark:bg-ma-black rounded-sm p-3 space-y-3">
+    <div className=" max-w-[196px] sm:w-[196px] bg-ma-off-white dark:bg-ma-black rounded-sm p-3 space-y-3">
       <div className=" w-full h-36 bg-[#DADFE3] rounded-sm"></div>
       <div className="w-full flex justify-between items-end">
         <div className="">

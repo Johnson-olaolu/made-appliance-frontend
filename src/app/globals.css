@@ -47,3 +47,57 @@ body {
   height: 4px;
   bottom: -4px;
 }
+
+/* Sidebar CheckBox */
+.sidebar-checkbox {
+  position: relative;
+}
+.sidebar-checkbox input[type="checkbox"] {
+  width: 16px;
+  height: 16px;
+  appearance: none;
+  position: relative;
+  display: block;
+  float: left;
+  box-sizing: border-box;
+  margin: 0;
+  font-weight: 300;
+  border: 1px solid #adadad;
+  border-radius: 2px;
+  z-index: 2;
+}
+.sidebar-checkbox .highlight {
+  opacity: 0;
+}
+
+.sidebar-checkbox:hover input[type="checkbox"] {
+  border: none;
+}
+
+.sidebar-checkbox:hover .highlight {
+  @apply border-2 border-ma-light-blue h-4 w-4 absolute left-0 top-0 opacity-100 rounded-sm;
+  transition: opacity 0.2s;
+}
+
+.sidebar-checkbox:hover .check {
+  opacity: 0.25;
+  transition: opacity 0.2s;
+}
+
+.sidebar-checkbox input[type="checkbox"]:checked {
+  @apply border-ma-light-blue bg-ma-light-blue;
+}
+
+.sidebar-checkbox input[type="checkbox"]:checked ~ .check {
+  fill: white;
+  z-index: 3;
+  opacity: 1;
+}
+
+.sidebar-checkbox .check {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translateX(-50%) translateY(-50%);
+  opacity: 0;
+}
