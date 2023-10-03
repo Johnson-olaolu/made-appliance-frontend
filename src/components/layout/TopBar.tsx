@@ -9,7 +9,7 @@ const TopBar = () => {
       <div className="max-w-6xl mx-auto  h-12 flex items-center justify-between">
         <div className="flex gap-1 items-center text-ma-text-primary dark:text-ma-off-white">
           <AiOutlineShop size={24} />
-          <span className=" text-xs font-medium">Up to 70% off the entire store</span>
+          <span className=" text-xs font-medium">UP TO 60% OFF WHAT YOU WILL PAY IN OTHER APPLIANCE RETAIL STORES</span>
         </div>
         <div className=" flex items-center gap-6">
           <select className=" text-xs text-ma-text-primary dark:text-ma-off-white bg-transparent cursor-pointer font-medium" name="" id="">
