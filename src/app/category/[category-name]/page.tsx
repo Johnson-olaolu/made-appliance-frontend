@@ -2,7 +2,7 @@ import React from "react";
 import { FiChevronRight } from "react-icons/fi";
 import Sidebar from "./components/sidebar";
 
-const SingleCategory = () => {
+const SingleCategory = ({ params }: { params: { slug: string } }) => {
   return (
     <main className=" bg-ma-white dark:bg-ma-grey ">
       <div className="max-w-6xl  px-2  sm:px-0 mx-auto pt-0 pb-16 sm:border-t-2 border-[#AEAEAE1A]">

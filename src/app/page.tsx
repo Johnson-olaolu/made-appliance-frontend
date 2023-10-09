@@ -31,6 +31,7 @@ export const metadata: Metadata = {
 };
 
 export default async function Home() {
+  // const response = await fetchSinglePage("");
   return (
     <main className=" bg-ma-white dark:bg-ma-grey">
       <div className="max-w-6xl  px-2  sm:px-0 mx-auto pt-0 pb-16">

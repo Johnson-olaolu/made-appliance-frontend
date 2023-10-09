@@ -3,8 +3,11 @@ import Categories from "./Categories";
 import Offers from "./Offers";
 import { tempOffers } from "@/utils/constants";
 import Link from "next/link";
+import { fetchOffers } from "@/services/offer.service";
 
-const Jumbotron = () => {
+interface IJumbotron {}
+const Jumbotron: React.FC<IJumbotron> = async (props) => {
+  const offers = await fetchOffers();
   return (
     <section className="flex gap-8 items-stretch">
       <Categories />
@@ -39,7 +42,7 @@ const Jumbotron = () => {
             </li>
           </ul>
         </nav>
-        <Offers />
+        <Offers offers={offers} />
       </div>
     </section>
   );

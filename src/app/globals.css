@@ -34,6 +34,20 @@ body {
   @apply bg-ma-black;
 }
 
+.homepage-offers {
+  grid-template-areas:
+    "A A B"
+    "A A C";
+  height: 360px;
+}
+
+.homepage-offers-mobile {
+  grid-template-areas:
+    "A A "
+    "A A "
+    "B C ";
+  height: 360px;
+}
 /* Footer Menu Title*/
 .footer-menu-title {
   @apply font-extrabold text-xl text-ma-white relative uppercase whitespace-nowrap;

@@ -4,6 +4,7 @@ import MenuIcons from "./components/MenuIcons";
 import { RxHamburgerMenu } from "react-icons/rx";
 import Image from "next/image";
 import MobileMenu from "./components/MobileMenu";
+import Link from "next/link";
 
 const Header = () => {
   const [showMobileMenu, setShowMobileMenu] = useState(false);
@@ -11,9 +12,9 @@ const Header = () => {
     <>
       <section className=" bg-ma-white  dark:bg-ma-grey sm:pt-8 ">
         <div className="max-w-6xl mx-auto hidden sm:flex items-center gap-8 pb-7 ">
-          <div className=" w-64 h-12 shrink-0 relative">
+          <Link href={"/"} className=" w-64 h-12 shrink-0 relative">
             <Image fill alt="logo" src="/images/logo.png" className="" />
-          </div>
+          </Link>
           <div className=" flex flex-grow justify-between">
             <SearchBar />
             <MenuIcons />
