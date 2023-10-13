@@ -1,10 +1,12 @@
+import { fetchDealofTheDay } from "@/services/deal-of-of-the-day.service";
 import React from "react";
 import DealOfTheDay from "./DealOfTheDay";
 
-const Deals = () => {
+const Deals = async () => {
+  const dealOfTheDay = await fetchDealofTheDay();
   return (
     <div className="sm:flex sm:gap-6 space-y-6 items-stretch block">
-      <DealOfTheDay />
+      <DealOfTheDay product={dealOfTheDay} />
       <div className="shrink-0 space-y-6">
         <div className="h-72 sm:w-[356px] py-9 px-7 " style={{ background: `url("/images/Mask group4545.png")`, backgroundSize: "100 100" }}>
           <div className="max-w-[112px] ">

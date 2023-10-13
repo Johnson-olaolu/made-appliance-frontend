@@ -1,5 +1,5 @@
 "use client";
-import { IProduct } from "@/services/types";
+import { IOffer } from "@/services/types";
 import gsap from "gsap";
 import Image from "next/image";
 import Link from "next/link";
@@ -7,7 +7,7 @@ import Link from "next/link";
 import React, { useEffect, useLayoutEffect, useRef, useState } from "react";
 
 const Offers: React.FC<{
-  offers: IProduct[];
+  offers: IOffer[];
 }> = (props) => {
   let { offers } = props;
   const offer1 = useRef<HTMLDivElement>(null);
@@ -108,40 +108,40 @@ const Offers: React.FC<{
       <div className=" hidden sm:grid gap-4 items-stretch homepage-offers">
         <div ref={offer1} style={{ gridArea: "A" }} className=" bg-ma-off-white active-offer relative p-9 flex  items-center">
           <div className="max-w-[230px]">
-            <span className=" text-ma-red text-sm uppercase">SUMMER SALE UPTO 50%</span>
+            <span className=" text-ma-red text-sm uppercase">{data[0]?.offer}</span>
             <h6 className=" text-ma-text-secondary dark:text-ma-off-white text-3xl font-bold mb-3 text-ellipsis line-clamp-3 overflow-hidden">
-              {data[0].name}
+              {data[0]?.product.name}
             </h6>
-            <p className=" text-xs text-ma-text-primary font-medium mb-7">{data[0].short_description.replace(/(<([^>]+)>)/gi, "")}</p>
+            <p className=" text-xs text-ma-text-primary font-medium mb-7">{data[0]?.product.short_description.replace(/(<([^>]+)>)/gi, "")}</p>
             <Link
-              href={`/product/${data[0].slug}`}
+              href={`/product/${data[0]?.product.slug}`}
               className=" h-12 w-36 flex items-center justify-center text-sm text-ma-white font-bold uppercase bg-ma-light-blue"
             >
               SHOP NOW
             </Link>
           </div>
           <Image
-            src={data[0]?.images[0].src}
-            alt={data[0]?.images[0].alt}
+            src={data[0]?.product?.images[0].src}
+            alt={data[0]?.product?.images[0].alt}
             height={280}
             width={243}
-            className="absolute bottom-0 right-14 max-h-80 w-auto"
+            className="absolute bottom-0 right-8 max-h-80 w-auto max-w-[272px]"
           />
         </div>
         <div ref={offer2} style={{ gridArea: "B" }} className=" bg-[#C1DAF9]  p-5 relative h-[172px]">
           <div className="max-w-[120px] flex flex-col justify-between h-full">
-            <h6 className=" text-xl font-bold line-clamp-2 overflow-hidden text-ellipsis">{data[1].name}</h6>
+            <h6 className=" text-xl font-bold line-clamp-2 overflow-hidden text-ellipsis">{data[1]?.product?.name}</h6>
             <div className="">
-              <span className=" font-medium text-[10px] text-ma-text-primary">Weekend Discount</span>
+              <span className=" font-medium text-[10px] text-ma-text-primary">{data[1]?.offer}</span>
               <div className="flex items-center gap-3">
-                <span className=" text-ma-red font-bold text-xl leading-none">${data[1].price}</span>
-                <span className=" text-sm line-through text-ma-text-secondary font-semibold leading-none">${data[1].price}</span>
+                <span className=" text-ma-red font-bold text-xl leading-none">${data[1]?.product?.price}</span>
+                {/* <span className=" text-sm line-through text-ma-text-secondary font-semibold leading-none">${data[1]?.product.price}</span> */}
               </div>
             </div>
           </div>
           <Image
-            src={data[1]?.images[0].src}
-            alt={data[1]?.images[0].alt}
+            src={data[1]?.product?.images[0].src}
+            alt={data[1]?.product?.images[0].alt}
             height={100}
             width={134}
             className="absolute  right-5 top-1/2 transform -translate-y-1/2 max-h-20 max-w-[120px] w-auto"
@@ -149,22 +149,22 @@ const Offers: React.FC<{
         </div>
         <div ref={offer3} style={{ gridArea: "C" }} className=" bg-[#DFE3E4] p-5 relative h-[172px]">
           <div className="max-w-[120px] flex flex-col justify-between h-full">
-            <h6 className=" text-xl font-bold line-clamp-2 overflow-hidden text-ellipsis">{data[2].name}</h6>
+            <h6 className=" text-xl font-bold line-clamp-2 overflow-hidden text-ellipsis">{data[2]?.product?.name}</h6>
             <div className="">
-              <span className=" font-medium text-[10px] text-ma-text-primary">Weekend Discount</span>
+              <span className=" font-medium text-[10px] text-ma-text-primary">{data[2]?.offer}</span>
               <div className="flex items-center gap-3">
-                <span className=" text-ma-red font-bold text-xl leading-none">${data[2].price}</span>
-                <span className=" text-sm line-through text-ma-text-secondary font-semibold leading-none">${data[2].price}</span>
+                <span className=" text-ma-red font-bold text-xl leading-none">${data[2]?.product?.price}</span>
+                {/* <span className=" text-sm line-through text-ma-text-secondary font-semibold leading-none">${data[2]?.product?.price}</span> */}
               </div>
             </div>
           </div>
-          {/* <Image
-            src={data[2]?.images[0].src}
-            alt={data[2]?.images[0].alt}
+          <Image
+            src={data[2]?.product?.images[0].src}
+            alt={data[2]?.product?.images[0].alt}
             height={100}
             width={134}
             className="absolute  right-5 top-1/2 transform -translate-y-1/2 max-h-20 max-w-[120px] w-auto"
-          /> */}
+          />
         </div>
       </div>
       {/* <div className=" hidden sm:flex gap-4 items-stretch">

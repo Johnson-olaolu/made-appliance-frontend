@@ -96,3 +96,8 @@ export interface IFreeOption {
   option_title: string;
   option_subtitle: string;
 }
+
+export interface IOffer {
+  offer: string;
+  product: IProduct;
+}
