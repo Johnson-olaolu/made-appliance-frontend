@@ -1,10 +1,12 @@
 import ProductCard from "@/components/ProductCard";
+import { getAllProducts } from "@/services/product.service";
 import Image from "next/image";
 import React from "react";
 
 const tempMenu = ["Popular", "On Sale", "Top", "Reviews"];
 
-const ProductsListing = () => {
+const ProductsListing = async () => {
+  const data = await getAllProducts();
   return (
     <div className="flex flex-col sm:flex-row gap-5 my-16">
       <div className="">
@@ -20,8 +22,8 @@ const ProductsListing = () => {
           </ul>
         </nav>
         <div className=" grid grid-cols-2 sm:grid-cols-4 gap-5">
-          {[1, 2, 3, 4, 5, 6, 7, 8].map((n) => (
-            <ProductCard key={n} />
+          {data.slice(0, 8).map((n) => (
+            <ProductCard product={n} key={n.id} />
           ))}
         </div>
       </div>

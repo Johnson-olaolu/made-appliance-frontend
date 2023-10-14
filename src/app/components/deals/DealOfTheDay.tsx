@@ -38,7 +38,10 @@ const DealOfTheDay: React.FC<{ product: IProduct }> = (props) => {
       </div>
       <div className="max-w-[312px] shrink-0">
         <span className=" hidden text-xs font-bold text-ma-red p-1 bg-[#FFF1F0] rounded-sm sm:inline-block mb-7">Deal of the day </span>
-        <h6 className=" text-ma-text-secondary dark:text-ma-off-white font-extrabold mb-5 text-3xl line-clamp-4 overflow-hidden text-ellipsis">
+        <h6
+          title={product?.name}
+          className=" text-ma-text-secondary dark:text-ma-off-white font-extrabold mb-5 text-3xl line-clamp-3 overflow-hidden text-ellipsis"
+        >
           {product?.name}
         </h6>
         <p className="flex items-center gap-4 mb-6">

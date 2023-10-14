@@ -1,7 +1,10 @@
 import ProductCard from "@/components/ProductCard";
+import { getSingleProductTag } from "@/services/product-tags.service";
+import { getProductsByTag } from "@/services/product.service";
 import React from "react";
 
-const FlashSale = () => {
+const FlashSale = async () => {
+  const data = await getProductsByTag("323");
   return (
     <div className="my-16 space-y-6">
       <div className="flex justify-between items-center">
@@ -24,9 +27,9 @@ const FlashSale = () => {
         </div>
       </div>
       <div className="flex justify-between items-center overflow-x-auto gap-3">
-        {[1, 2, 3, 4, 5].map((n) => (
-          <div key={n} className="shrink-0">
-            <ProductCard />
+        {data.slice(0, 5).map((n) => (
+          <div key={n.id} className="shrink-0">
+            <ProductCard product={n} />
           </div>
         ))}
       </div>
