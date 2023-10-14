@@ -10,15 +10,24 @@ class HttpFacade {
     this.http = axios.create({
       baseURL: `${process.env.BASE_URL}/wp-json/wp/v2`,
       headers: { "content-type": "application/json" },
+      // auth: {
+      //   username: process.env.WP_USERNAME || "",
+      //   password: process.env.WP_PASSWORD || "",
+      // },
     });
 
     this.http.interceptors.request.use(
       (config) => {
         //update store to use auth storage
         // if (token) config.headers!.Authorization = ``;
-        // const token = `${process.env.WOO_CLIENT_KEY}:${process.env.WOO_CLIENT_SECRET}`;
-        // const encodedToken = Buffer.from(token).toString("base64");
-        // config.headers.Authorization = "Basic " + encodedToken;
+        const token = `${process.env.WP_USERNAME}:${"$0re-Made!App"}`;
+        const encodedToken = btoa(token);
+        config.headers.Authorization = "Basic " + encodedToken;
+
+        // console.log({
+        //   username: process.env.WP_USERNAME || "",
+        //   password: process.env.WP_PASSWORD || "",
+        // });
         return config;
       },
       (error) => Promise.reject(error)

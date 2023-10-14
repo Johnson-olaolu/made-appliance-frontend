@@ -69,12 +69,6 @@ export interface IProduct {
   post_password: "";
 }
 
-export interface ICategory {
-  id: number;
-  name: string;
-  slug: string;
-}
-
 export interface IMetaData {
   id: number;
   key: string;
@@ -100,4 +94,15 @@ export interface IFreeOption {
 export interface IOffer {
   offer: string;
   product: IProduct;
+}
+export interface ICategory {
+  id: number;
+  name: string;
+  slug: string;
+  parent: number;
+  description: string;
+  display: string;
+  image: IImage;
+  menu_order: number;
+  count: number;
 }

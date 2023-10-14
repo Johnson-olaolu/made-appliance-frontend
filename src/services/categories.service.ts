@@ -1,29 +1,13 @@
-import { gql } from "@apollo/client";
-import createApolloClient from "./apollo-client";
+import https from "@/utils/https";
+import { WooCommerce } from "./woocommerce.service";
+import { ICategory } from "./types";
 
-const client = createApolloClient();
+export const getSingleCategory = async (id: string) => {
+  const response = await WooCommerce.get(`products/categories/${id}`);
+  return response?.data as ICategory;
+};
 
-export interface IProductCategory {
-  id: string;
-  link: string;
-  name: string;
-  slug: string;
-}
-
-export const fetchAllProductCategories = async () => {
-  const { data } = await client.query({
-    query: gql`
-      query NewQuery {
-        productCategories {
-          nodes {
-            id
-            name
-            link
-            slug
-          }
-        }
-      }
-    `,
-  });
-  return data?.productCategories.nodes as IProductCategory[];
+export const fetchAllCategories = async () => {
+  const response = await fetch(`/categories`);
+  return response;
 };

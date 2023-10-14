@@ -8,13 +8,14 @@ export const tempMenu = [
 ];
 
 export const tempCategories = [
-  "Cell Phones",
-  "Computers & Accessories",
-  "Television & Video",
-  "Smartwatches",
-  "Camera & Headphones",
-  "Video Games",
-  "Sports & Outdoors",
+  { name: "Refigerator", url: "/category/refrigerator" },
+  { name: "Ranges", url: "/category/ranges" },
+  { name: "Dishwasher", url: "/category/dishwasher" },
+  { name: "TV", url: "/category/tv" },
+  { name: "CookTops", url: "/category/cook-tops" },
+  { name: "Washer and Dryer", url: "/category/washer-dryer" },
+  { name: "Microwave", url: "/category/microwave" },
+  { name: "Oven", url: "/category/oven" },
 ];
 
 export const tempOffers = ["Home", "Today's Deals", "Trending Products", "Blog", "Special Offers"];
