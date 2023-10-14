@@ -54,7 +54,7 @@ const MobileMenu: React.FC<{
               {tempCategories.map((category, idx) => (
                 <li className="py-2 px-4" key={idx}>
                   <a href="#" className=" w-full flex items-center justify-between   text-ma-text-secondary dark:text-ma-off-white">
-                    <span className=" font-medium">{category}</span>
+                    <span className=" font-medium">{category.name}</span>
                     <FaChevronRight />
                   </a>
                 </li>
