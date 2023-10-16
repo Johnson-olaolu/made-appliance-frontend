@@ -34,7 +34,7 @@ const DealOfTheDay: React.FC<{ product: IProduct }> = (props) => {
     <div className="flex-col sm:flex-row flex-grow flex p-8 bg-ma-off-white dark:bg-ma-black sm:items-center">
       <div className="flex-grow mb-7 sm:mb-0">
         <span className="sm:hidden text-xs font-bold text-ma-red p-1 bg-[#FFF1F0] rounded-sm inline-block mb-7">Deal of the day </span>
-        <Image src={product?.images[0]?.src} height={551} width={278} alt="" className="max-h-[552px] max-w-[278px] w-auto h-full" />
+        <Image src={"/images/image 3uiyn.png"} height={551} width={278} alt="" className="max-h-[552px] max-w-[278px] w-auto h-full" />
       </div>
       <div className="max-w-[312px] shrink-0">
         <span className=" hidden text-xs font-bold text-ma-red p-1 bg-[#FFF1F0] rounded-sm sm:inline-block mb-7">Deal of the day </span>
@@ -45,7 +45,7 @@ const DealOfTheDay: React.FC<{ product: IProduct }> = (props) => {
           {product?.name}
         </h6>
         <p className="flex items-center gap-4 mb-6">
-          <span className="text-ma-red font-bold text-3xl">{product.price}</span>
+          <span className="text-ma-red font-bold text-3xl">${product.price}</span>
           {/* <span className="text-ma-text-primary text-lg line-through font-medium">$179.99</span> */}
         </p>
         <p className="text-sm font-medium text-ma-text-primary mb-8">{product.short_description.replace(/(<([^>]+)>)/gi, "")}</p>

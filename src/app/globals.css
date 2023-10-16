@@ -35,10 +35,15 @@ body {
 }
 
 .homepage-offers {
+  grid-template: repeat(2, 1fr) / repeat(6, 1fr);
   grid-template-areas:
-    "A A B"
-    "A A C";
+    "A A A A  B B"
+    "A A A A  C C";
   height: 360px;
+}
+
+.homepage-offers > div {
+  min-width: 0;
 }
 
 .homepage-offers-mobile {
