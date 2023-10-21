@@ -3,6 +3,7 @@ import { Metadata } from "next";
 import { ReduxProvider } from "@/store/provider";
 import Layout from "@/components/layout/Layout";
 import NextTopLoader from "nextjs-toploader";
+import BrevoChat from "@/components/extras/BrevoChat";
 
 export const metadata: Metadata = {
   title: "Made Apliances",
@@ -26,6 +27,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <ReduxProvider>
           <Layout>{children}</Layout>
         </ReduxProvider>
+        <BrevoChat />
       </body>
     </html>
   );
