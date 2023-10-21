@@ -1,4 +1,4 @@
-import ProductCard from "@/components/ProductCard";
+import ProductCard from "@/components/product/ProductCard";
 import { getAllProducts } from "@/services/product.service";
 import Image from "next/image";
 import React from "react";

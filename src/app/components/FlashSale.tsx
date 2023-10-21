@@ -1,4 +1,4 @@
-import ProductCard from "@/components/ProductCard";
+import ProductCard from "@/components/product/ProductCard";
 import { getSingleProductTag } from "@/services/product-tags.service";
 import { getProductsByTag } from "@/services/product.service";
 import React from "react";
