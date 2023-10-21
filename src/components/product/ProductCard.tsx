@@ -25,7 +25,7 @@ const ProductCard: React.FC<IProductCard> = (props) => {
   useLayoutEffect(() => {
     ctx.add("mouseEnter", () => {
       gsap.to(productWrapperRef.current, {
-        // backgroundColor: "#fff",
+        backgroundColor: "#fff",
         boxShadow: "0 25px 50px -12px rgb(0 0 0 / 0.25)",
         duration: 0.5,
         zIndex: 50,
