@@ -120,3 +120,14 @@ body {
   transform: translateX(-50%) translateY(-50%);
   opacity: 0;
 }
+
+.filterbar-select {
+  @apply h-12 p-3 pr-8 border border-ma-text-secondary bg-transparent text-sm focus-within:ring-ma-light-blue focus-within:ring-2;
+  font-family: inherit;
+  /** for the dropdown indicator */
+  appearance: none;
+  background-image: url("data:image/svg+xml;base64,ICA8c3ZnIHdpZHRoPSIxNiIgaGVpZ2h0PSIxNiIgdmlld0JveD0iMCAwIDE2IDE2IiBmaWxsPSJub25lIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgo8cGF0aCBkPSJNNC42NjY1IDYuNjY2NjNMNy45OTk4NCA5Ljk5OTk2TDExLjMzMzIgNi42NjY2M0g0LjY2NjVaIiBmaWxsPSJibGFjayIvPgo8L3N2Zz4=");
+  background-repeat: no-repeat;
+  background-position: right 0.75rem center;
+  background-size: 1.5rem;
+}

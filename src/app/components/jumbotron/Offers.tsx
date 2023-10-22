@@ -1,5 +1,5 @@
 "use client";
-import { IOffer } from "@/services/types";
+import { IAcfUrl, ICategory, IImage, IMedia, IOffer } from "@/services/types";
 import gsap from "gsap";
 import Image from "next/image";
 import Link from "next/link";
@@ -8,8 +8,23 @@ import React, { useEffect, useLayoutEffect, useRef, useState } from "react";
 
 const Offers: React.FC<{
   offers: IOffer[];
+  jumbotronDetails: {
+    mainJumbotron: {
+      main_jumbotron_title: string;
+      main_jumbotron_text: string;
+      main_jumbotron_cta: string;
+      main_jumbotron_image: IMedia;
+      main_jumbotron_url: string;
+    };
+    topDeals: {
+      top_deals_promo_image: IMedia;
+      top_deals_url: IAcfUrl;
+      top_deals_cta: string;
+    };
+    higlightedCategory: ICategory;
+  };
 }> = (props) => {
-  let { offers } = props;
+  let { offers, jumbotronDetails } = props;
   const offer1 = useRef<HTMLDivElement>(null);
   const offer2 = useRef<HTMLDivElement>(null);
   const offer3 = useRef<HTMLDivElement>(null);
@@ -110,21 +125,19 @@ const Offers: React.FC<{
           <div className="max-w-[240px] h-full py-5">
             {/* <span className=" text-ma-red text-sm uppercase">{data[0]?.offer}</span> */}
             <h6 className=" text-ma-text-secondary dark:text-ma-off-white text-3xl font-bold mb-3 text-ellipsis line-clamp-5 overflow-hidden">
-              Major discounts on kitchen appliances.
+              {jumbotronDetails.mainJumbotron.main_jumbotron_title}
             </h6>
-            <p className=" text-xs text-ma-text-primary font-medium mb-7">
-              Lorem, ipsum dolor sit amet consectetur adipisicing elit. Illo optio aliquam sed quod assumenda!
-            </p>
+            <p className=" text-xs text-ma-text-primary font-medium mb-7">{jumbotronDetails.mainJumbotron.main_jumbotron_text}</p>
             <Link
               href={`/shop`}
-              className=" h-12 w-36 flex items-center justify-center text-sm text-ma-white font-bold uppercase bg-ma-light-blue mt-8"
+              className=" h-12 w-36 flex items-center justify-center text-sm text-ma-white font-bold uppercase bg-ma-light-blue mt-8 "
             >
-              SHOP NOW
+              {jumbotronDetails.mainJumbotron.main_jumbotron_cta}
             </Link>
           </div>
           <Image
-            src={`/images/image 14.png`}
-            alt={data[0]?.product?.images[0].alt}
+            src={jumbotronDetails.mainJumbotron.main_jumbotron_image.media_details.sizes.full.source_url}
+            alt={jumbotronDetails.mainJumbotron.main_jumbotron_image.alt_text}
             height={280}
             width={243}
             className="absolute bottom-0 right-8 max-h-80 w-[250px] h-auto"
@@ -132,14 +145,20 @@ const Offers: React.FC<{
         </div>
         <div ref={offer2} style={{ gridArea: "B" }} className=" bg-[#012F6B] p-5 relative h-[172px] flex flex-col items-center justify-between ">
           <div className="flex flex-col items-center gap-2 ">
-            <Image src={`/images/top-deals.png`} alt="" height={40} width={120} className="" />
+            <Image
+              src={jumbotronDetails.topDeals.top_deals_promo_image.media_details.sizes.full.source_url}
+              alt=""
+              height={40}
+              width={120}
+              className=""
+            />
             <p className=" text-xs text-ma-white text-center">Find the best offers from our latest sales, all in one place.</p>
           </div>
           <Link
             href={`/shop`}
             className=" h-8 rounded-sm w-28 flex items-center justify-center text-xs text-ma-light-blue font-bold uppercase bg-ma-white"
           >
-            SHOP NOW
+            {jumbotronDetails.topDeals.top_deals_cta}
           </Link>
         </div>
         <div ref={offer3} style={{ gridArea: "C" }} className=" bg-[#DFE3E4] p-5 relative h-[172px]">

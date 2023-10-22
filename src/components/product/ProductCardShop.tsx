@@ -6,33 +6,28 @@ import Image from "next/image";
 import Link from "next/link";
 import React, { useLayoutEffect, useRef, useState } from "react";
 import { AiOutlineShoppingCart } from "react-icons/ai";
-import { FaHeart } from "react-icons/fa6";
-import { FiHeart, FiRefreshCcw } from "react-icons/fi";
+import { FaHeart, FaStar } from "react-icons/fa6";
+import { FiRefreshCcw } from "react-icons/fi";
 
-export interface IProductCard {
+interface IProductCardShop {
   product: IProduct;
 }
 
-const ProductCard: React.FC<IProductCard> = (props) => {
+const ProductCardShop: React.FC<IProductCardShop> = (props) => {
   const { product } = props;
+
   const [isHovered, setIsHovered] = useState(false);
   const [ctx] = useState(gsap.context(() => {}));
 
-  const productWrapperRef = useRef(null);
-  const productDescriptionRef = useRef(null);
+  const productShopCardWrapperRef = useRef(null);
   const productActionsRef = useRef(null);
 
   useLayoutEffect(() => {
     ctx.add("mouseEnter", () => {
-      gsap.to(productWrapperRef.current, {
-        backgroundColor: "#fff",
+      gsap.to(productShopCardWrapperRef.current, {
         boxShadow: "0 25px 50px -12px rgb(0 0 0 / 0.25)",
         duration: 0.5,
         zIndex: 50,
-      });
-      gsap.to(productDescriptionRef.current, {
-        height: "auto",
-        duration: 0.5,
       });
       gsap.to(productActionsRef.current, {
         opacity: 1,
@@ -40,12 +35,7 @@ const ProductCard: React.FC<IProductCard> = (props) => {
       });
     });
     ctx.add("mouseLeave", () => {
-      gsap.to(productDescriptionRef.current, {
-        height: "0",
-        duration: 0.5,
-      });
-      gsap.to(productWrapperRef.current, {
-        backgroundColor: "rgb(243 243 243 / var(--tw-bg-opacity))",
+      gsap.to(productShopCardWrapperRef.current, {
         boxShadow: "none",
         duration: 0.5,
         zIndex: 1,
@@ -66,18 +56,17 @@ const ProductCard: React.FC<IProductCard> = (props) => {
     setIsHovered(false);
     ctx.mouseLeave();
   };
-
   return (
-    <div className=" relative  h-[212px] w-[196px]">
-      <Link
-        href={`/product/${product.slug}`}
-        ref={productWrapperRef}
+    <>
+      <div
+        role="button"
+        className=" p-2 rounded pb-4"
+        ref={productShopCardWrapperRef}
         onMouseEnter={handleMouseEnter}
         onMouseLeave={handleMouseLeave}
-        className=" max-w-[196px] sm:w-[196px] bg-ma-off-white dark:bg-ma-black rounded-sm p-4 absolute"
       >
-        <div className=" relative mb-3">
-          <Image src={product?.images[0]?.src} height={172} width={144} className="w-full h-36 rounded-sm" alt={product?.images[0]?.alt} />
+        <div className="h-48 w-full mx-auto relative">
+          <Image src={product?.images[0]?.src} height={192} width={192} className="h-48 w-full" alt={product?.images[0]?.alt} />
           <div
             ref={productActionsRef}
             className=" bg-white absolute bottom-4 flex left-1/2 transform -translate-x-1/2 rounded-sm shadow-xl opacity-0"
@@ -92,29 +81,29 @@ const ProductCard: React.FC<IProductCard> = (props) => {
               <FiRefreshCcw className=" text-ma-text-secondary  dark:text-ma-off-white " />
             </div>
           </div>
-          {false && <span className=" px-[6px] py-[2px] bg-red-500 text-white shadow text-xs absolute top-2 right-2">Save 12%</span>}
         </div>
-        <div className={`w-full flex justify-between items-end ${isHovered && "mb-3"}`}>
-          <div className="">
-            <span className="text-[10px] text-ma-light-blue block">{product?.categories[0].name}</span>
-            <p className="text-xs font-bold text-ma-text-secondary dark:text-ma-off-white line-clamp-1 text-ellipsis overflow-hidden max-w-[120px]">
-              {product?.name}
-            </p>
+        <div className=" mt-4">
+          <Link href={"#"} className=" text-sm overflow-hidden text-ellipsis mb-2 hover:underline">
+            {product?.name}
+          </Link>
+        </div>
+        <div className=" mt-4 flex items-end gap-2 ">
+          <span className="text-xl font-bold text-ma-light-blue">{formatAmount(product.price)}</span>
+          <span className="text-sm font-bold text-ma-light-blue line-through opacity-50">{formatAmount(product.price)}</span>
+        </div>
+        <div className="gap-2 flex items-end mt-4">
+          <div className="flex items-center gap-1">
+            <FaStar className="text-[#fecf0a]" />
+            <FaStar className="text-[#fecf0a]" />
+            <FaStar className="text-[#fecf0a]" />
+            <FaStar className="text-[#fecf0a]" />
+            <FaStar className="text-[#fecf0a]" />
           </div>
-          <div className="">
-            <p className="text-xs font-bold text-ma-red"> {formatAmount(product?.price)}</p>
-          </div>
+          <span className=" text-xs text-ma-text-primary">( 2 reviews)</span>
         </div>
-        <div className="">
-          <p
-            ref={productDescriptionRef}
-            dangerouslySetInnerHTML={{ __html: product.description }}
-            className=" text-xs line-clamp-3 overflow-hidden text-ellipsis  h-0"
-          ></p>
-        </div>
-      </Link>
-    </div>
+      </div>
+    </>
   );
 };
 
-export default ProductCard;
+export default ProductCardShop;

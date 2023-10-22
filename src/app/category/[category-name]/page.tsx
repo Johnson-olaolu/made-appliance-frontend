@@ -1,31 +1,40 @@
 import React from "react";
 import { FiChevronRight } from "react-icons/fi";
 import Sidebar from "./components/sidebar";
+import { getSingleCategory, getSingleCategoryUsingSlug } from "@/services/categories.service";
+import Link from "next/link";
+import ProductsDisplay from "./components/products";
 
-const SingleCategory = ({ params }: { params: { slug: string } }) => {
+const SingleCategory = async ({ params }: { params: { "category-name": string } }) => {
+  const data = await getSingleCategoryUsingSlug(params["category-name"]);
   return (
     <main className=" bg-ma-white dark:bg-ma-grey ">
       <div className="max-w-6xl  px-2  sm:px-0 mx-auto pt-0 pb-16 sm:border-t-2 border-[#AEAEAE1A]">
-        <ul className=" flex items-center text-sm py-3">
+        <ul className=" flex items-center text-sm py-4">
           <li className="flex items-center ">
-            <a href="" className=" text-ma-light-blue">
+            <Link href="/" className=" text-ma-light-blue">
               Home
-            </a>
+            </Link>
             <FiChevronRight className=" mt-[2px] mx-2 dark:text-ma-white text-ma-grey " />
           </li>
           <li className="flex items-center ">
-            <a href="" className=" text-ma-light-blue">
+            <Link href="/category" className=" text-ma-light-blue">
               Category
-            </a>
+            </Link>
             <FiChevronRight className=" mt-[2px] mx-2 dark:text-ma-white text-ma-grey " />
           </li>
           <li className="flex items-center ">
-            <span className=" dark:text-ma-white text-ma-grey">Furniture</span>
+            <span className=" dark:text-ma-white text-ma-grey">{data.name}</span>
           </li>
         </ul>
-        <h1 className=" font-semibold text-2xl dark:text-ma-white text-ma-grey">Furniture</h1>
+        <h1 className=" font-semibold text-2xl dark:text-ma-white text-ma-grey">{data.name}</h1>
+        <div
+          className=" h-[448px] bg-gray-600 mt-6"
+          style={{ backgroundImage: "url('/images/12162048924794326523.jpg')", backgroundSize: "cover" }}
+        ></div>
         <div className=" mt-6 flex gap-8 items-stretch">
           <Sidebar />
+          <ProductsDisplay />
         </div>
       </div>
     </main>

@@ -7,6 +7,17 @@ export const getSingleCategory = async (id: string) => {
   return response?.data as ICategory;
 };
 
+export const getSingleCategoryUsingSlug = async (slug: string): Promise<ICategory> => {
+  return WooCommerce.get("products/categories", { slug })
+    .then((response) => {
+      return response.data[0] as ICategory;
+    })
+    .catch((error) => {
+      console.log(error);
+      throw new Error(error?.response?.data);
+    });
+};
+
 export const fetchAllCategories = async () => {
   const response = await fetch(`/categories`);
   return response;

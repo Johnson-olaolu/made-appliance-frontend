@@ -106,3 +106,83 @@ export interface ICategory {
   menu_order: number;
   count: number;
 }
+
+export interface IAcfUrl {
+  title: string;
+  url: string;
+  target: string;
+}
+
+export interface IMedia {
+  id: 15089;
+  date: "2023-10-21T12:51:43";
+  date_gmt: "2023-10-21T17:51:43";
+  guid: { rendered: "https://madeappliance.com/wp-content/uploads/2023/10/image-14.png" };
+  modified: "2023-10-21T12:51:43";
+  modified_gmt: "2023-10-21T17:51:43";
+  slug: "image-14-2";
+  status: "inherit";
+  type: "attachment";
+  link: "https://madeappliance.com/made-appliance-outlet/image-14-2/";
+  title: { rendered: "image 14" };
+  author: 1;
+  comment_status: "open";
+  ping_status: "closed";
+  template: "";
+  meta: [];
+  acf: [];
+  description: {
+    rendered: '<p class="attachment"><a href=\'https://madeappliance.com/wp-content/uploads/2023/10/image-14.png\'><img loading="lazy" width="251" height="288" src="https://madeappliance.com/wp-content/uploads/2023/10/image-14.png" class="attachment-medium size-medium" alt="" decoding="async" title=""></a></p>\n';
+  };
+  caption: { rendered: "" };
+  alt_text: "";
+  media_type: "image";
+  mime_type: "image/png";
+  media_details: {
+    width: 251;
+    height: 288;
+    file: "2023/10/image-14.png";
+    filesize: 71310;
+    sizes: {
+      thumbnail: {
+        file: "image-14-150x150.png";
+        width: 150;
+        height: 150;
+        filesize: 27476;
+        mime_type: "image/png";
+        source_url: "https://madeappliance.com/wp-content/uploads/2023/10/image-14-150x150.png";
+      };
+      woocommerce_gallery_thumbnail: {
+        file: "image-14-100x100.png";
+        width: 100;
+        height: 100;
+        filesize: 14220;
+        mime_type: "image/png";
+        source_url: "https://madeappliance.com/wp-content/uploads/2023/10/image-14-100x100.png";
+      };
+      full: {
+        file: "image-14.png";
+        width: 251;
+        height: 288;
+        mime_type: "image/png";
+        source_url: "https://madeappliance.com/wp-content/uploads/2023/10/image-14.png";
+      };
+    };
+    image_meta: {
+      aperture: "0";
+      credit: "";
+      camera: "";
+      caption: "";
+      created_timestamp: "0";
+      copyright: "";
+      focal_length: "0";
+      iso: "0";
+      shutter_speed: "0";
+      title: "";
+      orientation: "0";
+      keywords: [];
+    };
+  };
+  post: 268;
+  source_url: "https://madeappliance.com/wp-content/uploads/2023/10/image-14.png";
+}

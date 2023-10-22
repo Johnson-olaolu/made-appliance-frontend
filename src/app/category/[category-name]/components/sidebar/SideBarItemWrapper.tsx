@@ -12,7 +12,7 @@ const SideBarItemWrapper: React.FC<ISideBarItemWrapper> = (props) => {
   const bodyRef = useRef<HTMLDivElement>(null);
   const iconRef = useRef(null);
   const [isOpen, setIsOpen] = useState(false);
-  const [ctx, setCtx] = useState(gsap.context(() => {}));
+  const [ctx] = useState(gsap.context(() => {}));
   useLayoutEffect(() => {
     ctx.add("open", () => {
       gsap.to(iconRef.current, {

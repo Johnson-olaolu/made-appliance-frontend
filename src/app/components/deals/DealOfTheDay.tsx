@@ -34,7 +34,7 @@ const DealOfTheDay: React.FC<{ product: IProduct }> = (props) => {
     <div className="flex-col sm:flex-row flex-grow flex p-8 bg-ma-off-white dark:bg-ma-black sm:items-center">
       <div className="flex-grow mb-7 sm:mb-0">
         <span className="sm:hidden text-xs font-bold text-ma-red p-1 bg-[#FFF1F0] rounded-sm inline-block mb-7">Deal of the day </span>
-        <Image src={"/images/image 3uiyn.png"} height={551} width={278} alt="" className="max-h-[552px] max-w-[278px] w-auto h-full" />
+        <Image src={"/images/image 3uiyn.png"} height={551} width={278} alt="" className="max-h-[552px] max-w-[278px] h-full" />
       </div>
       <div className="max-w-[312px] shrink-0">
         <span className=" hidden text-xs font-bold text-ma-red p-1 bg-[#FFF1F0] rounded-sm sm:inline-block mb-7">Deal of the day </span>

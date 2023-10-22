@@ -53,10 +53,10 @@ const Footer = () => {
               <p className="text-xs text-ma-text-primary">Selling the best products with the best prices since 2007</p>
               <Image width={192} height={56} alt="logo" src="/images/Shop Image.png" className="my-4" />
               <div className=" text-xs text-ma-text-primary space-y-4">
-                <p className=" flex items-center gap-1 ">
+                {/* <p className=" flex items-center gap-1 ">
                   <FaLocationDot />
                   <span>2945 Walnut Hill ln, Dallas, TX 75229</span>
-                </p>
+                </p> */}
                 <p className="flex items-center gap-1 ">
                   <FaLocationDot />
                   <span>14655 Midway Rd, Addison TX 75001</span>

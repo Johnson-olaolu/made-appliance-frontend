@@ -10,6 +10,7 @@ import Testimonial from "./components/Testimonial";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
+  // icons: "/favicon.png",
   title: "Made Appliance Outlet | DISCOUNTS ON ALL APPLIANCES",
   description:
     "Made Appliance Outlet is the #1 Appliance Outlet Store in the Dallas-Fort Worth Metroplex. Best Prices Guaranteed. Great products. Payment Options Available.",
