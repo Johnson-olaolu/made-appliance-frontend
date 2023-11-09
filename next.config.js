@@ -4,6 +4,7 @@ const nextConfig = {
     images: {
         domains: ['madeappliance.com'],
     },
+    output: 'standalone',
 }
 
 module.exports = nextConfig

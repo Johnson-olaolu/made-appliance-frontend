@@ -25,7 +25,7 @@ const FlashSale = async () => {
           </div>
         </div>
       </div>
-      <div className="flex justify-between items-center gap-3">
+      <div className="grid grid-cols-2 justify-between items-center gap-3 sm:flex">
         {data.slice(0, 5).map((n) => (
           <div key={n.id} className="shrink-0">
             <ProductCard product={n} />

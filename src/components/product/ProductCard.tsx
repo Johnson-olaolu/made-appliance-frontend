@@ -25,7 +25,6 @@ const ProductCard: React.FC<IProductCard> = (props) => {
   useLayoutEffect(() => {
     ctx.add("mouseEnter", () => {
       gsap.to(productWrapperRef.current, {
-        backgroundColor: "#fff",
         boxShadow: "0 25px 50px -12px rgb(0 0 0 / 0.25)",
         duration: 0.5,
         zIndex: 50,
@@ -45,7 +44,6 @@ const ProductCard: React.FC<IProductCard> = (props) => {
         duration: 0.5,
       });
       gsap.to(productWrapperRef.current, {
-        backgroundColor: "rgb(243 243 243 / var(--tw-bg-opacity))",
         boxShadow: "none",
         duration: 0.5,
         zIndex: 1,
@@ -68,13 +66,13 @@ const ProductCard: React.FC<IProductCard> = (props) => {
   };
 
   return (
-    <div className=" relative  h-[212px] w-[196px]">
+    <div className=" relative  h-[212px] sm:w-[196px] w-[180px]">
       <Link
         href={`/product/${product.slug}`}
         ref={productWrapperRef}
         onMouseEnter={handleMouseEnter}
         onMouseLeave={handleMouseLeave}
-        className=" max-w-[196px] sm:w-[196px] bg-ma-off-white dark:bg-ma-black rounded-sm p-4 absolute"
+        className=" sm:w-[196px] w-[180px] bg-ma-off-white dark:bg-ma-black rounded-sm p-2 absolute"
       >
         <div className=" relative mb-3">
           <Image src={product?.images[0]?.src} height={172} width={144} className="w-full h-36 rounded-sm" alt={product?.images[0]?.alt} />
@@ -97,7 +95,7 @@ const ProductCard: React.FC<IProductCard> = (props) => {
         <div className={`w-full flex justify-between items-end ${isHovered && "mb-3"}`}>
           <div className="">
             <span className="text-[10px] text-ma-light-blue block">{product?.categories[0].name}</span>
-            <p className="text-xs font-bold text-ma-text-secondary dark:text-ma-off-white line-clamp-1 text-ellipsis overflow-hidden max-w-[120px]">
+            <p className="text-xs font-bold text-ma-text-secondary dark:text-ma-off-white line-clamp-1 text-ellipsis overflow-hidden max-w-[100px]">
               {product?.name}
             </p>
           </div>
@@ -109,7 +107,7 @@ const ProductCard: React.FC<IProductCard> = (props) => {
           <p
             ref={productDescriptionRef}
             dangerouslySetInnerHTML={{ __html: product.description }}
-            className=" text-xs line-clamp-3 overflow-hidden text-ellipsis  h-0"
+            className=" text-xs line-clamp-3 overflow-hidden text-ellipsis  h-0 text-ma-text-secondary dark:text-ma-off-white"
           ></p>
         </div>
       </Link>

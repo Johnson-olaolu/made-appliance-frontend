@@ -12,14 +12,14 @@ const Testimonial = async () => {
           <FaQuoteLeft size={72} className="text-ma-white" />
         </div>
         <p className="text-center text-ma-white text-lg sm:text-2xl font-bold">Hear What Our Customers Have to Say</p>
-        <div className="mt-8 flex justify-center gap-4">
+        <div className="mt-8 flex justify-center gap-10">
           {data?.map((testimonial, idx) => (
-            <div key={idx} className="w-56 bg-ma-white dark:bg-ma-black shadow-md">
+            <div key={idx} className={`w-56 bg-ma-white dark:bg-ma-black shadow-md ${idx} ${idx > 0 && "hidden sm:block"} `}>
               <div
                 className="h-32 border-b-8 border-b-ma-text-primary relative "
                 style={{
                   background: testimonial.testimonial_image ? `url("${testimonial.testimonial_image}")` : `url("/images/pageprofilepix.jpg")`,
-                  backgroundSize: " auto 100",
+                  backgroundSize: " 100% auto ",
                 }}
               >
                 {/* <Image width={220} height={120} alt="" src={"/images/image 38.png"} /> */}

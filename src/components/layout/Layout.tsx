@@ -3,7 +3,7 @@ import React, { useEffect } from "react";
 import TopBar from "./TopBar";
 import Footer from "./Footer";
 import { useDispatch, useSelector } from "react-redux";
-import { RootState, changeScreenSize } from "@/store/appSlice";
+import { RootState, changeDarkMode, changeScreenSize } from "@/store/appSlice";
 import { screenSizes } from "@/utils/constants";
 import Header from "./header";
 
@@ -13,6 +13,7 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
   if (!theme) {
     // console.log(window.matchMedia("(prefers-color-scheme: dark)").matches);
     theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+    dispatch(changeDarkMode(theme));
   }
 
   useEffect(() => {
@@ -37,7 +38,6 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
     handleResize(screen.width);
 
     const handleWindowResize = (e: Event) => {
-      console.log(screen.width);
       handleResize(screen.width);
     };
     window.addEventListener("resize", handleWindowResize);

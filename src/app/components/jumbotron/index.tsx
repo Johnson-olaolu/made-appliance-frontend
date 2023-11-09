@@ -1,7 +1,6 @@
 import React from "react";
 import Categories from "./Categories";
 import Offers from "./Offers";
-import { tempOffers } from "@/utils/constants";
 import Link from "next/link";
 import { fetchOffers } from "@/services/offer.service";
 import { fetchJumbotron } from "@/services/homepage.service";
