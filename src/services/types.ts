@@ -186,3 +186,20 @@ export interface IMedia {
   post: 268;
   source_url: "https://madeappliance.com/wp-content/uploads/2023/10/image-14.png";
 }
+
+export interface ITax {
+  id: 72;
+  country: "US";
+  state: "AL";
+  postcode: "35041";
+  city: "Cardiff";
+  postcodes: ["35014", "35036", "35041"];
+  cities: ["Alpine", "Brookside", "Cardiff"];
+  rate: "4.0000";
+  name: "State Tax";
+  priority: 0;
+  compound: false;
+  shipping: false;
+  order: 1;
+  class: "standard";
+}

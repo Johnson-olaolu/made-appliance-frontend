@@ -1,19 +1,26 @@
 "use client";
 import { IProduct } from "@/services/types";
+import { RootState } from "@/store/appSlice";
+import { addProductCart, addProductCompare, likeProduct, reduceProductCart, removeProductCompare, unLikeProduct } from "@/store/productSlice";
 import { formatAmount } from "@/utils/misc";
 import gsap from "gsap";
 import Image from "next/image";
 import Link from "next/link";
-import React, { useLayoutEffect, useRef, useState } from "react";
+import React, { useLayoutEffect, useMemo, useRef, useState } from "react";
 import { AiOutlineShoppingCart } from "react-icons/ai";
 import { FaHeart } from "react-icons/fa6";
 import { FiHeart, FiRefreshCcw } from "react-icons/fi";
+import { useDispatch, useSelector } from "react-redux";
 
 export interface IProductCard {
   product: IProduct;
 }
 
 const ProductCard: React.FC<IProductCard> = (props) => {
+  const dispatch = useDispatch();
+  const likes = useSelector((state: RootState) => state.product.likes);
+  const compares = useSelector((state: RootState) => state.product.compares);
+  const cart = useSelector((state: RootState) => state.product.cart);
   const { product } = props;
   const [isHovered, setIsHovered] = useState(false);
   const [ctx] = useState(gsap.context(() => {}));
@@ -65,6 +72,42 @@ const ProductCard: React.FC<IProductCard> = (props) => {
     ctx.mouseLeave();
   };
 
+  const onClickLikeProduct = (isLiked: boolean) => {
+    if (isLiked) {
+      dispatch(unLikeProduct(product.id));
+    } else {
+      dispatch(likeProduct(product));
+    }
+  };
+
+  const onClickCompareProduct = (isCompared: boolean) => {
+    if (isCompared) {
+      dispatch(removeProductCompare(product.id));
+    } else {
+      dispatch(addProductCompare(product));
+    }
+  };
+
+  const onClickCartProduct = (isInCart: boolean) => {
+    if (isInCart) {
+      dispatch(reduceProductCart(product.id));
+    } else {
+      dispatch(addProductCart(product));
+    }
+  };
+
+  const isLiked = useMemo(() => {
+    return likes.findIndex((p) => p.id === product.id) !== -1;
+  }, [likes, product]);
+
+  const isCompared = useMemo(() => {
+    return compares.findIndex((p) => p.id === product.id) !== -1;
+  }, [compares, product]);
+
+  const isInCart = useMemo(() => {
+    return cart.findIndex((p) => p.product.id === product.id) !== -1;
+  }, [cart, product]);
+
   return (
     <div className=" relative  h-[212px] sm:w-[196px] w-[180px]">
       <Link
@@ -81,13 +124,32 @@ const ProductCard: React.FC<IProductCard> = (props) => {
             className=" bg-white absolute bottom-4 flex left-1/2 transform -translate-x-1/2 rounded-sm shadow-xl opacity-0"
           >
             <div className=" h-7 w-7 flex items-center justify-center rounded-l-sm" role="button">
-              <FaHeart className=" text-red-500" />
+              <FaHeart
+                className={`${isLiked ? " text-red-500" : " text-gray-400"}`}
+                onClick={(e: Event) => {
+                  e.preventDefault();
+                  onClickLikeProduct(isLiked);
+                }}
+              />
             </div>
             <div className=" h-7 w-8 flex items-center justify-center border-x-2 border-ma-[#AEAEAE1A]" role="button">
-              <AiOutlineShoppingCart className=" text-ma-text-secondary  dark:text-ma-off-white " />
+              <AiOutlineShoppingCart
+                className={`${isInCart ? " text-ma-text-secondary  dark:text-ma-off-white" : " text-gray-100"}`}
+                onClick={(e: Event) => {
+                  e.preventDefault();
+                  onClickCartProduct(isInCart);
+                }}
+              />
             </div>
             <div className=" h-7 w-7 flex items-center justify-center rounded-r-sm" role="button">
-              <FiRefreshCcw className=" text-ma-text-secondary  dark:text-ma-off-white " />
+              <FiRefreshCcw
+                // className=" text-ma-text-secondary  dark:text-ma-off-white "
+                className={`${isCompared ? " text-ma-text-secondary  dark:text-ma-off-white" : " text-gray-100"}`}
+                onClick={(e: Event) => {
+                  e.preventDefault();
+                  onClickCompareProduct(isCompared);
+                }}
+              />
             </div>
           </div>
           {false && <span className=" px-[6px] py-[2px] bg-red-500 text-white shadow text-xs absolute top-2 right-2">Save 12%</span>}

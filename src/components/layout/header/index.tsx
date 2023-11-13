@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import SearchBar from "./components/SearchBar";
-import MenuIcons from "./components/MenuIcons";
+import MenuIcons from "./components/menu-icons";
 import { RxHamburgerMenu } from "react-icons/rx";
 import Image from "next/image";
 import MobileMenu from "./components/MobileMenu";
