@@ -1,10 +1,11 @@
 "use client";
+import imglyRemoveBackground from "@imgly/background-removal";
 import { IProduct } from "@/services/types";
 import { formatAmount } from "@/utils/misc";
 import gsap from "gsap";
 import Image from "next/image";
 import Link from "next/link";
-import React, { useLayoutEffect, useRef, useState } from "react";
+import React, { useEffect, useLayoutEffect, useRef, useState } from "react";
 import { AiOutlineShoppingCart } from "react-icons/ai";
 import { FaHeart, FaStar } from "react-icons/fa6";
 import { FiRefreshCcw } from "react-icons/fi";
@@ -17,6 +18,7 @@ const ProductCardShop: React.FC<IProductCardShop> = (props) => {
   const { product } = props;
 
   const [isHovered, setIsHovered] = useState(false);
+  const [productImage, setProductImage] = useState("");
   const [ctx] = useState(gsap.context(() => {}));
 
   const productShopCardWrapperRef = useRef(null);
@@ -25,7 +27,7 @@ const ProductCardShop: React.FC<IProductCardShop> = (props) => {
   useLayoutEffect(() => {
     ctx.add("mouseEnter", () => {
       gsap.to(productShopCardWrapperRef.current, {
-        boxShadow: "0 25px 50px -12px rgb(0 0 0 / 0.25)",
+        // boxShadow: "0 25px 50px -12px rgb(0 0 0 / 0.25)",
         duration: 0.5,
         zIndex: 50,
       });
@@ -50,12 +52,20 @@ const ProductCardShop: React.FC<IProductCardShop> = (props) => {
 
   const handleMouseEnter = () => {
     setIsHovered(true);
-    ctx.mouseEnter();
+    // ctx.mouseEnter();
   };
   const handleMouseLeave = () => {
     setIsHovered(false);
-    ctx.mouseLeave();
+    // ctx.mouseLeave();
   };
+
+  useEffect(() => {
+    imglyRemoveBackground(product?.images[0]?.src).then((blob) => {
+      const url = URL.createObjectURL(blob);
+      console.log(blob);
+      setProductImage(url);
+    });
+  }, [product?.images]);
   return (
     <>
       <div
@@ -66,7 +76,13 @@ const ProductCardShop: React.FC<IProductCardShop> = (props) => {
         onMouseLeave={handleMouseLeave}
       >
         <div className="h-48 w-full mx-auto relative">
-          <Image src={product?.images[0]?.src} height={192} width={192} className="h-48 w-full" alt={product?.images[0]?.alt} />
+          <Image
+            src={productImage || product?.images[0]?.src}
+            height={180}
+            width={180}
+            className=" object-contain h-48 w-full"
+            alt={product?.images[0]?.alt}
+          />
           <div
             ref={productActionsRef}
             className=" bg-white absolute bottom-4 flex left-1/2 transform -translate-x-1/2 rounded-sm shadow-xl opacity-0"
@@ -83,7 +99,7 @@ const ProductCardShop: React.FC<IProductCardShop> = (props) => {
           </div>
         </div>
         <div className=" mt-4">
-          <Link href={"#"} className=" text-sm overflow-hidden text-ellipsis mb-2 hover:underline">
+          <Link href={"#"} className="text-ma-text-secondary dark:text-ma-off-white  text-sm overflow-hidden text-ellipsis mb-2 hover:underline">
             {product?.name}
           </Link>
         </div>
