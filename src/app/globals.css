@@ -122,7 +122,7 @@ body {
 }
 
 .filterbar-select {
-  @apply h-12 p-3 pr-8 border border-ma-text-secondary bg-transparent text-sm focus-within:ring-ma-light-blue focus-within:ring-2;
+  @apply h-12 p-3 pr-8 border border-ma-text-secondary dark:border-ma-white bg-transparent text-sm focus-within:ring-ma-light-blue focus-within:ring-2 dark:text-ma-white text-ma-grey;
   font-family: inherit;
   /** for the dropdown indicator */
   appearance: none;

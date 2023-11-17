@@ -4,9 +4,10 @@ import Sidebar from "./components/sidebar";
 import { getSingleCategory, getSingleCategoryUsingSlug } from "@/services/categories.service";
 import Link from "next/link";
 import ProductsDisplay from "./components/products";
+import { NextPage } from "next";
 
-const SingleCategory = async ({ params }: { params: { "category-name": string } }) => {
-  const data = await getSingleCategoryUsingSlug(params["category-name"]);
+const SingleCategory: NextPage<any> = async (props) => {
+  const data = await getSingleCategoryUsingSlug(props.params["category-name"]);
   return (
     <main className=" bg-ma-white dark:bg-ma-grey ">
       <div className="max-w-6xl  px-2  sm:px-0 mx-auto pt-0 pb-16 sm:border-t-2 border-[#AEAEAE1A]">
@@ -28,13 +29,13 @@ const SingleCategory = async ({ params }: { params: { "category-name": string } 
           </li>
         </ul>
         <h1 className=" font-semibold text-2xl dark:text-ma-white text-ma-grey">{data.name}</h1>
-        <div
+        {/* <div
           className=" h-[448px] bg-gray-600 mt-6"
           style={{ backgroundImage: "url('/images/12162048924794326523.jpg')", backgroundSize: "cover" }}
-        ></div>
+        ></div> */}
         <div className=" mt-6 flex gap-8 items-stretch">
-          <Sidebar />
-          <ProductsDisplay />
+          <Sidebar categoryId={data.id} />
+          <ProductsDisplay category={props.searchParams["category"] || data.slug} />
         </div>
       </div>
     </main>

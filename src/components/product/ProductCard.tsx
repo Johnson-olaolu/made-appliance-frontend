@@ -118,7 +118,13 @@ const ProductCard: React.FC<IProductCard> = (props) => {
         className=" sm:w-[196px] w-[180px] bg-ma-off-white dark:bg-ma-black rounded-sm p-2 absolute"
       >
         <div className=" relative mb-3">
-          <Image src={product?.images[0]?.src} height={172} width={144} className="w-full h-36 rounded-sm" alt={product?.images[0]?.alt} />
+          <Image
+            src={product?.images[0]?.src}
+            height={172}
+            width={144}
+            className="w-full h-36 rounded-sm object-contain"
+            alt={product?.images[0]?.alt}
+          />
           <div
             ref={productActionsRef}
             className=" bg-white absolute bottom-4 flex left-1/2 transform -translate-x-1/2 rounded-sm shadow-xl opacity-0"

@@ -17,6 +17,16 @@ export const getSingleCategoryUsingSlug = async (slug: string): Promise<ICategor
       throw new Error(error?.response?.data);
     });
 };
+export const getSubCategories = async (id: number): Promise<ICategory[]> => {
+  return WooCommerce.get("products/categories", { parent: id })
+    .then((response) => {
+      return response.data as ICategory[];
+    })
+    .catch((error) => {
+      console.log(error);
+      throw new Error(error?.response?.data);
+    });
+};
 
 export const fetchAllCategories = async () => {
   const response = await fetch(`/categories`);

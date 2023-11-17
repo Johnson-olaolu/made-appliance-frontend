@@ -7,9 +7,7 @@ const SpecialDiscount = () => {
       <div className=" flex flex-col sm:flex-row items-center gap-16 h-full">
         <div className="text-center sm:text-left h-full flex flex-col justify-between max-w-[516px]">
           <h6 className=" text-ma-text-secondary dark:text-ma-off-white font-bold text-3xl text drop-shadow">Bottom Refrigerator Stainless Steel</h6>
-          <p className="text-ma-text-primary text-sm font-medium">
-            The Xbox Elite Wireless Controller Series 2 features over 30 ways to play like a pro, including adjustable-tension thumbsticks{" "}
-          </p>
+          <p className="text-ma-text-primary text-sm font-medium">We offer the best deals on home and Kitchen Appliances</p>
         </div>
         <Image width={179} height={100} src={"/images/image 16.png"} alt="" />
       </div>

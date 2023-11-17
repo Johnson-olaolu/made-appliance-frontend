@@ -1,14 +1,21 @@
 import React from "react";
 import FilterBar from "./components/filter";
-import { getAllProducts } from "@/services/product.service";
+import { getAllProducts, queryProducts } from "@/services/product.service";
 import ProductCard from "@/components/product/ProductCard";
 import ProductCardShop from "@/components/product/ProductCardShop";
+import { getSingleCategoryUsingSlug } from "@/services/categories.service";
 
-const ProductsDisplay = async () => {
-  const data = await getAllProducts();
+interface IProductDisplay {
+  category?: string;
+}
+const ProductsDisplay: React.FC<IProductDisplay> = async (props) => {
+  const { category } = props;
+  // console.log(props);
+  const categoryD = await getSingleCategoryUsingSlug(category || "");
+  const data = await queryProducts({ category: categoryD.id });
   return (
     <div className=" w-full flex-grow">
-      <FilterBar />
+      <FilterBar count={data.length} />
       <div className=" py-6 grid grid-cols-4 gap-5">
         {data.map((product) => (
           <ProductCardShop product={product} key={product.id} />

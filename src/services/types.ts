@@ -203,3 +203,8 @@ export interface ITax {
   order: 1;
   class: "standard";
 }
+
+export interface IQuery {
+  categories?: string[];
+  tags?: string[];
+}

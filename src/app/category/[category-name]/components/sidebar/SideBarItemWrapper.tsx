@@ -6,12 +6,13 @@ import { FiChevronDown } from "react-icons/fi";
 interface ISideBarItemWrapper {
   title: string;
   children: React.ReactNode;
+  open?: boolean;
 }
 const SideBarItemWrapper: React.FC<ISideBarItemWrapper> = (props) => {
-  const { title, children } = props;
+  const { title, children, open = false } = props;
   const bodyRef = useRef<HTMLDivElement>(null);
   const iconRef = useRef(null);
-  const [isOpen, setIsOpen] = useState(false);
+  const [isOpen, setIsOpen] = useState(open);
   const [ctx] = useState(gsap.context(() => {}));
   useLayoutEffect(() => {
     ctx.add("open", () => {
@@ -58,7 +59,7 @@ const SideBarItemWrapper: React.FC<ISideBarItemWrapper> = (props) => {
           <FiChevronDown size={18} />
         </span>
       </button>
-      <div ref={bodyRef} className="body h-0 overflow-hidden">
+      <div ref={bodyRef} className={`body ${open ? "h-auto" : "h-0"}  overflow-hidden`}>
         {children}
       </div>
     </div>

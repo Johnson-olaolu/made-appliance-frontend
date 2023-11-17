@@ -68,7 +68,8 @@ const ProductCardShop: React.FC<IProductCardShop> = (props) => {
   }, [product?.images]);
   return (
     <>
-      <div
+      <Link
+        href={`/product/${product.slug}`}
         role="button"
         className=" p-2 rounded pb-4"
         ref={productShopCardWrapperRef}
@@ -107,7 +108,7 @@ const ProductCardShop: React.FC<IProductCardShop> = (props) => {
           <span className="text-xl font-bold text-ma-light-blue">{formatAmount(product.price)}</span>
           <span className="text-sm font-bold text-ma-light-blue line-through opacity-50">{formatAmount(product.price)}</span>
         </div>
-        <div className="gap-2 flex items-end mt-4">
+        {/* <div className="gap-2 flex items-end mt-4">
           <div className="flex items-center gap-1">
             <FaStar className="text-[#fecf0a]" />
             <FaStar className="text-[#fecf0a]" />
@@ -116,8 +117,8 @@ const ProductCardShop: React.FC<IProductCardShop> = (props) => {
             <FaStar className="text-[#fecf0a]" />
           </div>
           <span className=" text-xs text-ma-text-primary">( 2 reviews)</span>
-        </div>
-      </div>
+        </div> */}
+      </Link>
     </>
   );
 };

@@ -23,7 +23,7 @@ const Categories = async () => {
                 href={`/category/${category?.slug}`}
                 className=" w-full flex items-center justify-between text-ma-text-primary dark:text-ma-off-white"
               >
-                <span className="text-sm font-medium">{category?.name}</span>
+                <span dangerouslySetInnerHTML={{ __html: category?.name }} className="text-sm font-medium"></span>
                 <FaChevronRight />
               </Link>
             </li>
