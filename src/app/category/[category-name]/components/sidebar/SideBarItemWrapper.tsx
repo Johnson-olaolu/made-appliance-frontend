@@ -51,7 +51,7 @@ const SideBarItemWrapper: React.FC<ISideBarItemWrapper> = (props) => {
   return (
     <div className="border-b-2 border-[#AEAEAE1A]">
       <button
-        className="header py-4 flex w-full justify-between items-center dark:text-ma-white text-ma-grey hover:text-ma-light-blue"
+        className="header py-4 px-4 sm:px-0 flex w-full justify-between items-center dark:text-ma-white text-ma-grey hover:text-ma-light-blue"
         onClick={handleToggle}
       >
         <span className="font-semibold text-sm">{title}</span>

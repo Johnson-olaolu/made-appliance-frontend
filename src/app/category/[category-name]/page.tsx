@@ -1,10 +1,11 @@
 import React from "react";
 import { FiChevronRight } from "react-icons/fi";
 import Sidebar from "./components/sidebar";
-import { getSingleCategory, getSingleCategoryUsingSlug } from "@/services/categories.service";
+import { getSingleCategoryUsingSlug } from "@/services/categories.service";
 import Link from "next/link";
 import ProductsDisplay from "./components/products";
 import { NextPage } from "next";
+import MobileFilter from "./components/mobile-filter";
 
 const SingleCategory: NextPage<any> = async (props) => {
   const data = await getSingleCategoryUsingSlug(props.params["category-name"]);
@@ -37,6 +38,9 @@ const SingleCategory: NextPage<any> = async (props) => {
           <Sidebar categoryId={data.id} />
           <ProductsDisplay category={props.searchParams["category"] || data.slug} />
         </div>
+      </div>
+      <div className="block sm:hidden">
+        <MobileFilter />
       </div>
     </main>
   );

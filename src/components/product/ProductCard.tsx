@@ -109,7 +109,7 @@ const ProductCard: React.FC<IProductCard> = (props) => {
   }, [cart, product]);
 
   return (
-    <div className=" relative  h-[212px] sm:w-[196px] w-[180px]">
+    <div className=" shrink-0 relative  h-auto  sm:h-[212px] sm:w-[196px] w-[180px]">
       <Link
         href={`/product/${product.slug}`}
         ref={productWrapperRef}
@@ -175,7 +175,7 @@ const ProductCard: React.FC<IProductCard> = (props) => {
           <p
             ref={productDescriptionRef}
             dangerouslySetInnerHTML={{ __html: product.description }}
-            className=" text-xs line-clamp-3 overflow-hidden text-ellipsis  h-0 text-ma-text-secondary dark:text-ma-off-white"
+            className=" text-xs line-clamp-3 overflow-hidden text-ellipsis text-left h-auto sm:h-0 text-ma-text-secondary dark:text-ma-off-white"
           ></p>
         </div>
       </Link>

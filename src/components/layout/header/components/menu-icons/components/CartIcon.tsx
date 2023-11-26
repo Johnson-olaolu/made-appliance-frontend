@@ -14,17 +14,22 @@ const CartIcon = () => {
   const dispatch = useDispatch();
   const [showModal, setShowModal] = useState(false);
   return (
-    <div className=" relative" onMouseEnter={() => setShowModal(true)} onMouseLeave={() => setShowModal(false)}>
+    <div
+      className=" relative"
+      onClick={() => setShowModal(!showModal)}
+      onMouseEnter={() => setShowModal(true)}
+      onMouseLeave={() => setShowModal(false)}
+    >
       <div className=" flex gap-2 items-center">
         <div className="relative">
-          <AiOutlineShoppingCart className=" text-ma-text-secondary  dark:text-ma-off-white " size={32} />
+          <AiOutlineShoppingCart role="button" className=" text-ma-text-secondary  dark:text-ma-off-white " size={32} />
           {cart?.length > 0 && (
             <span className=" h-[14px] w-[14px] pb-px rounded-full text-[10px] leading-none font-medium text-ma-white flex items-center justify-center absolute -top-1 -right-1 bg-ma-red">
               {cart.reduce((b, a) => a.amount + b, 0)}
             </span>
           )}
         </div>
-        <div className="flex flex-col gap-px">
+        <div className="hidden flex-col gap-px sm:flex">
           <span className=" text-xs text-ma-text-primary leading-none">Total</span>
           <span className=" text-sm text-ma-text-secondary dark:text-ma-off-white leading-none font-bold">
             {formatAmount(cart.reduce((b, a) => parseFloat(a.product.price) * a.amount + b, 0)) || "$0"}

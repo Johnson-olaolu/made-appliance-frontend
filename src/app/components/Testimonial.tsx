@@ -6,7 +6,7 @@ import { FaQuoteLeft } from "react-icons/fa6";
 const Testimonial = async () => {
   const data = await fetchTestimonials();
   return (
-    <div className="pt-16 pb-24">
+    <div className="pt-16 pb-40">
       <div className="h-80 bg-[#012F6B] relative pt-16 sm:pt-20 ">
         <div className=" scale-75 sm:scale-100 h-32 w-32 bg-ma-light-blue rounded-full absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2 flex items-center justify-center">
           <FaQuoteLeft size={72} className="text-ma-white" />
@@ -16,10 +16,13 @@ const Testimonial = async () => {
           {data?.map((testimonial, idx) => (
             <div key={idx} className={`w-56 bg-ma-white dark:bg-ma-black shadow-md ${idx} ${idx > 0 && "hidden sm:block"} `}>
               <div
-                className="h-32 border-b-8 border-b-ma-text-primary relative "
+                className="h-44 border-b-8 border-b-ma-text-primary relative "
                 style={{
-                  background: testimonial.testimonial_image ? `url("${testimonial.testimonial_image}")` : `url("/images/pageprofilepix.jpg")`,
-                  backgroundSize: " 100% auto ",
+                  background: testimonial.testimonial_image
+                    ? `url("${testimonial.testimonial_image.source_url}")`
+                    : `url("/images/pageprofilepix.jpg")`,
+                  backgroundSize: "cover",
+                  backgroundRepeat: "no-repeat",
                 }}
               >
                 {/* <Image width={220} height={120} alt="" src={"/images/image 38.png"} /> */}

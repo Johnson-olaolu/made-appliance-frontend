@@ -23,7 +23,7 @@ const SimilarProducts: React.FC<IProductDetails> = async (props) => {
         <h4 className=" p-6 text-xl font-bold ">Similar Products</h4>
       </div>
       <div className="body overflow-hidden p-6">
-        <div className="flex h-[260px]  justify-between">
+        <div className="flex h-[260px]  justify-between gap-5 overflow-auto">
           {products.map((p) => (
             <ProductCard product={p} key={p.id} />
           ))}

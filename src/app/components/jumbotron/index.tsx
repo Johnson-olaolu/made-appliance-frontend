@@ -3,15 +3,17 @@ import Categories from "./Categories";
 import Offers from "./Offers";
 import Link from "next/link";
 import { fetchOffers } from "@/services/offer.service";
-import { fetchJumbotron } from "@/services/homepage.service";
+import { fetchJumbotron, fetchTopCategories } from "@/services/homepage.service";
 
 interface IJumbotron {}
 const Jumbotron: React.FC<IJumbotron> = async (props) => {
   const offers = await fetchOffers();
   const jumbotronDetails = await fetchJumbotron();
+  const data = await fetchTopCategories();
+
   return (
     <section className="flex gap-8 items-stretch">
-      <Categories />
+      <Categories categories={data?.top_categories} />
       <div className="flex-grow sm:border-t-2 border-[#AEAEAE1A]">
         <nav className=" h-auto  sm:h-14 items-center flex sm:justify-end mb-4">
           <ul className="flex w-full items-center gap-3 sm:gap-8 flex-wrap justify-between sm:justify-end gap-y-2">

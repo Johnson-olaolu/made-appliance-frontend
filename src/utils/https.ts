@@ -8,7 +8,7 @@ class HttpFacade {
 
   constructor() {
     this.http = axios.create({
-      baseURL: `${process.env.BASE_URL}/wp-json/wp/v2`,
+      baseURL: `${process.env.BASE_URL || process.env.NEXT_PUBLIC_BASE_URL}/wp-json/wp/v2`,
       headers: { "content-type": "application/json" },
       // auth: {
       //   username: process.env.WP_USERNAME || "",

@@ -7,6 +7,8 @@ interface ICategoryPageContext {
   query: IQuery;
   setQuery: React.Dispatch<React.SetStateAction<IQuery>>;
   searchQuery: () => void;
+  showMobileFilter: boolean;
+  setShowMobileFilter: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
 const CategoryPageContext = createContext({});
@@ -20,6 +22,7 @@ export const CategoryPageProvider: React.FC<{
   const searchParams = useSearchParams()!;
   const { children, category } = props;
   const [query, setQuery] = useState<IQuery>({});
+  const [showMobileFilter, setShowMobileFilter] = useState(false);
 
   const searchQuery = useCallback(() => {
     const params = new URLSearchParams(searchParams);
@@ -37,8 +40,10 @@ export const CategoryPageProvider: React.FC<{
       query,
       setQuery,
       searchQuery,
+      showMobileFilter,
+      setShowMobileFilter,
     }),
-    [query, searchQuery]
+    [query, searchQuery, showMobileFilter]
   );
 
   return <CategoryPageContext.Provider value={value}>{children}</CategoryPageContext.Provider>;

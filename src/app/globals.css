@@ -131,3 +131,7 @@ body {
   background-position: right 0.75rem center;
   background-size: 1.5rem;
 }
+
+:is(.dark .filterbar-select) {
+  background-image: url("data:image/svg+xml;base64,ICA8c3ZnIHdpZHRoPSIxNiIgaGVpZ2h0PSIxNiIgdmlld0JveD0iMCAwIDE2IDE2IiBmaWxsPSJub25lIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgo8cGF0aCBkPSJNNC42NjY1IDYuNjY2NjNMNy45OTk4NCA5Ljk5OTk2TDExLjMzMzIgNi42NjY2M0g0LjY2NjVaIiBmaWxsPSJ3aGl0ZSIvPgo8L3N2Zz4=");
+}

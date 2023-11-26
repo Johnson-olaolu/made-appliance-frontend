@@ -2,6 +2,7 @@ import { Currency, Language } from "@/utils/types";
 import { AnyAction, combineReducers, createSlice, PayloadAction, Reducer } from "@reduxjs/toolkit";
 import storage from "redux-persist/es/storage";
 import { productSlice } from "./productSlice";
+import { categorySlice } from "./categorySlice";
 
 const appSlice = createSlice({
   name: "app",
@@ -40,6 +41,7 @@ export const { clearStore, changeDarkMode, changeLanguage, changeScreenSize } = 
 const reducers = combineReducers({
   app: appSlice.reducer,
   product: productSlice.reducer,
+  category: categorySlice.reducer,
 });
 
 export const combinedMiddleware = [];

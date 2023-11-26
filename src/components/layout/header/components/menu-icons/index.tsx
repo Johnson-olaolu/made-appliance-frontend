@@ -46,16 +46,13 @@ const MenuIcons = () => {
       <div className="flex sm:hidden items-center gap-3">
         <div className=" relative">
           <FiHeart className=" text-ma-text-secondary  dark:text-ma-off-white " size={26} />
-          <span className="  h-[14px] w-[14px] rounded-full text-[10px] leading-none font-medium text-ma-white flex items-center justify-center absolute -top-1 -right-1 bg-ma-red">
-            2
-          </span>
+          {likes?.length > 0 && (
+            <span className="  h-[14px] w-[14px] rounded-full text-[10px] leading-none font-medium text-ma-white flex items-center justify-center absolute -top-1 -right-1 bg-ma-red">
+              {likes.length}
+            </span>
+          )}
         </div>
-        <div className="relative">
-          <AiOutlineShoppingCart className=" text-ma-text-secondary  dark:text-ma-off-white " size={32} />
-          <span className=" h-[14px] w-[14px] pb-px rounded-full text-[10px] leading-none font-medium text-ma-white flex items-center justify-center absolute -top-1 -right-1 bg-ma-red">
-            2
-          </span>
-        </div>
+        <CartIcon />
       </div>
     </>
   );

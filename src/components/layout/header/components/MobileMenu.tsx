@@ -1,10 +1,16 @@
+"use client";
 import Switch from "@/components/extras/Switch";
+import { fetchTopCategories } from "@/services/homepage.service";
+import { ICategory } from "@/services/types";
+import { RootState } from "@/store/appSlice";
 import { currencies, languages, tempCategories } from "@/utils/constants";
 import gsap from "gsap";
 import Image from "next/image";
-import React, { Dispatch, SetStateAction, useLayoutEffect, useRef, useState } from "react";
+import Link from "next/link";
+import React, { Dispatch, SetStateAction, useEffect, useLayoutEffect, useRef, useState } from "react";
 import { FaChevronRight } from "react-icons/fa6";
 import { FiX } from "react-icons/fi";
+import { useSelector } from "react-redux";
 
 const MobileMenu: React.FC<{
   setShowMobileMenu: Dispatch<SetStateAction<boolean>>;
@@ -34,14 +40,17 @@ const MobileMenu: React.FC<{
     ctx.entry();
     return () => ctx.revert();
   }, []);
+
+  const topCategories = useSelector((state: RootState) => state.category.category);
+
   return (
-    <aside className="fixed left-0 right-0 bottom-0 top-0 bg-black bg-opacity-20">
+    <aside className="fixed left-0 right-0 bottom-0 top-0 bg-black bg-opacity-20 z-50">
       <div
         className="max-w-xs flex flex-col  h-full bg-ma-off-white  dark:bg-ma-grey sm:pt-8 opacity-0 transform -translate-x-full"
         ref={mobileMenuRef}
       >
         <div className="p-4 flex items-center shrink-0 justify-between">
-          <FiX className=" text-ma-text-secondary  dark:text-ma-off-white " size={26} onClick={() => ctx.exit()} />
+          <FiX className=" text-ma-text-secondary  dark:text-ma-off-white " size={26} onClick={() => ctx.exit()} role="button" />
           <Image width={150} height={30} alt="logo" src="/images/logo.png" className="" />
         </div>
         <div className=" flex-grow flex flex-col justify-between">
@@ -51,12 +60,15 @@ const MobileMenu: React.FC<{
               <p className=" font-bold  text-ma-red">View All</p>
             </div>
             <ul className="">
-              {tempCategories.map((category, idx) => (
+              {topCategories.map((category, idx) => (
                 <li className="py-2 px-4" key={idx}>
-                  <a href="#" className=" w-full flex items-center justify-between   text-ma-text-secondary dark:text-ma-off-white">
-                    <span className=" font-medium">{category.name}</span>
+                  <Link
+                    href={`category/${category.slug}`}
+                    className=" w-full flex items-center justify-between   text-ma-text-secondary dark:text-ma-off-white"
+                  >
+                    <span dangerouslySetInnerHTML={{ __html: category.name }} className=" font-medium"></span>
                     <FaChevronRight />
-                  </a>
+                  </Link>
                 </li>
               ))}
             </ul>

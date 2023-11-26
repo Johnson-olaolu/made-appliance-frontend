@@ -21,6 +21,6 @@ export const getAllProducts = async () => {
 };
 
 export const queryProducts = async (query: { category?: number }) => {
-  const response = await WooCommerce.get(`products`);
+  const response = await WooCommerce.get(`products?category=${query.category}`);
   return response?.data as IProduct[];
 };

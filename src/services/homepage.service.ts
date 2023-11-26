@@ -3,7 +3,7 @@ import { getSingleCategory } from "./categories.service";
 import { IAcfUrl, ICategory, IImage, IMedia } from "./types";
 import { fetchSingleImage } from "./media.service";
 
-const id = process.env.HOMEPAGE_ID;
+const id = process.env.HOMEPAGE_ID || process.env.NEXT_PUBLIC_HOMEPAGE_ID;
 export const fetchTopCategories = async () => {
   try {
     const response = await https.get({ url: `/pages/${id}` });
@@ -22,7 +22,7 @@ export const fetchTopCategories = async () => {
       top_categories,
     };
   } catch (error) {
-    console.log({ categories: error });
+    console.log({ error });
   }
 };
 
@@ -70,7 +70,6 @@ export const fetchTestimonials = async () => {
     for (const testimonial of testimonials) {
       if (testimonial.testimonial_image) testimonial.testimonial_image = await fetchSingleImage(testimonial.testimonial_image as any);
     }
-
     return testimonials;
   } catch (error) {
     console.log({ testimonial: error });

@@ -23,7 +23,12 @@ const Header = () => {
         <div className="block sm:hidden items-center py-3 gap-2 px-2">
           <div className="flex items-center justify-between mb-3">
             <div className="flex items-center gap-5 shrink-0">
-              <RxHamburgerMenu className=" text-ma-text-secondary dark:text-ma-white" size={30} onClick={() => setShowMobileMenu(!showMobileMenu)} />
+              <RxHamburgerMenu
+                className=" text-ma-text-secondary dark:text-ma-white"
+                size={30}
+                onClick={() => setShowMobileMenu(!showMobileMenu)}
+                role="button"
+              />
               <Image width={150} height={30} alt="logo" src="/images/logo.png" className="" />
             </div>
             <MenuIcons />

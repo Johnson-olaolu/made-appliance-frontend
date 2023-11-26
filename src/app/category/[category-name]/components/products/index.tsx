@@ -16,7 +16,7 @@ const ProductsDisplay: React.FC<IProductDisplay> = async (props) => {
   return (
     <div className=" w-full flex-grow">
       <FilterBar count={data.length} />
-      <div className=" py-6 grid grid-cols-4 gap-5">
+      <div className=" py-6 grid grid-cols-2 gap-5 sm:grid-cols-4">
         {data.map((product) => (
           <ProductCardShop product={product} key={product.id} />
         ))}
