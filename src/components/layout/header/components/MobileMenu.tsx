@@ -51,7 +51,9 @@ const MobileMenu: React.FC<{
       >
         <div className="p-4 flex items-center shrink-0 justify-between">
           <FiX className=" text-ma-text-secondary  dark:text-ma-off-white " size={26} onClick={() => ctx.exit()} role="button" />
-          <Image width={150} height={30} alt="logo" src="/images/logo.png" className="" />
+          <Link href={"/"}>
+            <Image width={150} height={30} alt="logo" src="/images/logo.png" className="" />
+          </Link>
         </div>
         <div className=" flex-grow flex flex-col justify-between">
           <div className="border-t-2 border-[#AEAEAE1A] ">
@@ -63,7 +65,7 @@ const MobileMenu: React.FC<{
               {topCategories.map((category, idx) => (
                 <li className="py-2 px-4" key={idx}>
                   <Link
-                    href={`category/${category.slug}`}
+                    href={`/category/${category.slug}`}
                     className=" w-full flex items-center justify-between   text-ma-text-secondary dark:text-ma-off-white"
                   >
                     <span dangerouslySetInnerHTML={{ __html: category.name }} className=" font-medium"></span>

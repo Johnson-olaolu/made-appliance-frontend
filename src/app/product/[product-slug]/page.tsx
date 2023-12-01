@@ -19,16 +19,18 @@ import CompareProductButton from "./components/CompareProductButton";
 import ProductDetails from "./components/ProductDetails";
 import SimilarProducts from "./components/SimilarProducts";
 import ViewImages from "./components/ViewImages";
+import { getMultipleCategories, getSingleCategory } from "@/services/categories.service";
 
 const SingleProduct = async (props: any) => {
   const productSlug = props?.params["product-slug"];
   const product = await getSingleProductBySlug(productSlug);
 
+  const categories = await getMultipleCategories(product.categories.map((c) => c.id));
   return (
     <>
       <main className=" bg-ma-white dark:bg-ma-grey ">
         <div className="max-w-6xl  px-2  sm:px-0 mx-auto pt-0 pb-16 sm:border-t-2 border-[#AEAEAE1A]">
-          <ProductBreadcrumbs categories={product.categories} title={product.name} />
+          <ProductBreadcrumbs categories={categories} title={product.name} />
           <div className="grid sm:xgrid-cols-2 gap-4 mt-6 grid-cols-1">
             <ViewImages product={product} />
             <div className="border-[#AEAEAE1A] border-b-2 flex flex-col justify-between  pb-4">

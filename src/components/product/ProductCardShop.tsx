@@ -100,9 +100,7 @@ const ProductCardShop: React.FC<IProductCardShop> = (props) => {
           </div>
         </div>
         <div className=" mt-4">
-          <Link href={"#"} className="text-ma-text-secondary dark:text-ma-off-white  text-sm overflow-hidden text-ellipsis mb-2 hover:underline">
-            {product?.name}
-          </Link>
+          <p className="text-ma-text-secondary dark:text-ma-off-white  text-sm overflow-hidden text-ellipsis mb-2 hover:underline">{product?.name}</p>
         </div>
         <div className=" mt-4 flex items-end gap-2 ">
           <span className="text-xl font-bold text-ma-light-blue">{formatAmount(product.price)}</span>

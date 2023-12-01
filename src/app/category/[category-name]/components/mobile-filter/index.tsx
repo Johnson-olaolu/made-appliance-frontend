@@ -6,8 +6,11 @@ import gsap from "gsap";
 import SidebarCategories from "../sidebar/components/SidebarCategories";
 import { useSelector } from "react-redux";
 import { RootState } from "@/store/appSlice";
+import { useParams, useSearchParams } from "next/navigation";
 
 const MobileFilter = () => {
+  const params = useParams<any>();
+  const searchParams = useSearchParams();
   const { showMobileFilter, setShowMobileFilter } = useCategoryPage();
   const mobileFilterRef = useRef<HTMLDivElement>(null);
   const [ctx, setCtx] = useState(gsap.context(() => {}, mobileFilterRef));

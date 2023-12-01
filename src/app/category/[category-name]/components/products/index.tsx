@@ -22,7 +22,7 @@ const ProductsDisplay: React.FC<IProductDisplay> = async (props) => {
         ))}
       </div>
       <div className=" flex justify-center">
-        <div className="h-12 w-36 flex items-center justify-center text-sm text-ma-white font-bold uppercase bg-ma-light-blue">Show More</div>
+        {/* <div className="h-12 w-36 flex items-center justify-center text-sm text-ma-white font-bold uppercase bg-ma-light-blue">Show More</div> */}
       </div>
     </div>
   );

@@ -109,13 +109,13 @@ const ProductCard: React.FC<IProductCard> = (props) => {
   }, [cart, product]);
 
   return (
-    <div className=" shrink-0 relative  h-auto  sm:h-[212px] sm:w-[196px] w-[180px]">
+    <div className=" shrink-0 relative  h-auto  sm:h-[212px] sm:w-[196px] max-w-[180px]">
       <Link
         href={`/product/${product.slug}`}
         ref={productWrapperRef}
         onMouseEnter={handleMouseEnter}
         onMouseLeave={handleMouseLeave}
-        className=" sm:w-[196px] w-[180px] bg-ma-off-white dark:bg-ma-black rounded-sm p-2 absolute"
+        className=" sm:w-[196px]  max-w-[180px] bg-ma-off-white dark:bg-ma-black rounded-sm p-2 relative sm:absolute block"
       >
         <div className=" relative mb-3">
           <Image
@@ -160,7 +160,7 @@ const ProductCard: React.FC<IProductCard> = (props) => {
           </div>
           {false && <span className=" px-[6px] py-[2px] bg-red-500 text-white shadow text-xs absolute top-2 right-2">Save 12%</span>}
         </div>
-        <div className={`w-full flex justify-between items-end ${isHovered && "mb-3"}`}>
+        <div className={`w-full flex justify-between items-end mb-3 sm:mb-0 flex-wrap ${isHovered && "sm:mb-3"}`}>
           <div className="">
             <span className="text-[10px] text-ma-light-blue block">{product?.categories[0].name}</span>
             <p className="text-xs font-bold text-ma-text-secondary dark:text-ma-off-white line-clamp-1 text-ellipsis overflow-hidden max-w-[100px]">

@@ -16,7 +16,7 @@ const Jumbotron: React.FC<IJumbotron> = async (props) => {
       <Categories categories={data?.top_categories} />
       <div className="flex-grow sm:border-t-2 border-[#AEAEAE1A]">
         <nav className=" h-auto  sm:h-14 items-center flex sm:justify-end mb-4">
-          <ul className="flex w-full items-center gap-3 sm:gap-8 flex-wrap justify-between sm:justify-end gap-y-2">
+          <ul className="flex w-full items-center gap-x-5 sm:gap-x-8 flex-wrap sm:justify-end gap-y-2 justify-center">
             <li className="">
               <Link href="/" className="text-xs sm:text-sm font-bold text-ma-text-secondary dark:text-ma-off-white">
                 Home

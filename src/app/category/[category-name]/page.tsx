@@ -9,6 +9,11 @@ import MobileFilter from "./components/mobile-filter";
 
 const SingleCategory: NextPage<any> = async (props) => {
   const data = await getSingleCategoryUsingSlug(props.params["category-name"]);
+  const subCategory = props.searchParams["category"];
+  let subCategoryData;
+  if (subCategory) {
+    subCategoryData = await getSingleCategoryUsingSlug(subCategory);
+  }
   return (
     <main className=" bg-ma-white dark:bg-ma-grey ">
       <div className="max-w-6xl  px-2  sm:px-0 mx-auto pt-0 pb-16 sm:border-t-2 border-[#AEAEAE1A]">
@@ -19,23 +24,33 @@ const SingleCategory: NextPage<any> = async (props) => {
             </Link>
             <FiChevronRight className=" mt-[2px] mx-2 dark:text-ma-white text-ma-grey " />
           </li>
-          <li className="flex items-center ">
-            <Link href="/category" className=" text-ma-light-blue">
-              Category
-            </Link>
-            <FiChevronRight className=" mt-[2px] mx-2 dark:text-ma-white text-ma-grey " />
-          </li>
-          <li className="flex items-center ">
-            <span className=" dark:text-ma-white text-ma-grey">{data.name}</span>
-          </li>
+          {subCategory ? (
+            <>
+              <li className="flex items-center ">
+                <Link href={`/category/${data.slug}`} className=" text-ma-light-blue">
+                  {data.name}
+                </Link>
+                <FiChevronRight className=" mt-[2px] mx-2 dark:text-ma-white text-ma-grey " />
+              </li>
+              <li className="flex items-center ">
+                <span className=" dark:text-ma-white text-ma-grey">{subCategoryData?.name}</span>
+              </li>
+            </>
+          ) : (
+            <>
+              <li className="flex items-center ">
+                <span className=" dark:text-ma-white text-ma-grey">{data.name}</span>
+              </li>
+            </>
+          )}
         </ul>
-        <h1 className=" font-semibold text-2xl dark:text-ma-white text-ma-grey">{data.name}</h1>
+        <h1 className=" font-semibold text-2xl dark:text-ma-white text-ma-grey">{subCategory ? subCategoryData?.name : data.name}</h1>
         {/* <div
           className=" h-[448px] bg-gray-600 mt-6"
           style={{ backgroundImage: "url('/images/12162048924794326523.jpg')", backgroundSize: "cover" }}
         ></div> */}
         <div className=" mt-6 flex gap-8 items-stretch">
-          <Sidebar categoryId={data.id} />
+          <Sidebar category={data} />
           <ProductsDisplay category={props.searchParams["category"] || data.slug} />
         </div>
       </div>

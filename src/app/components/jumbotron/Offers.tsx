@@ -115,30 +115,33 @@ const Offers: React.FC<{
           />
         </div>
       </div>
-      <div ref={offerMobileWrapper} className=" sm:hidden flex  flex-nowrap  gap-4 overflow-x-auto w-screen">
-        <div ref={offerMobile1} className=" bg-ma-off-white h-44  shrink-0 p-4 relative w-full flex">
-          <div className="w-36 h-full flex flex-col justify-between">
-            <h6 className="text-ma-text-secondary dark:text-ma-off-white font-bold text-ellipsis line-clamp-5 leading-tight overflow-hidden">
+
+      <div ref={offerMobileWrapper} className=" sm:hidden block space-y-4">
+        <div ref={offerMobile1} className=" bg-ma-off-white dark:bg-ma-black shrink-0 p-4 relative w-full flex flex-col gap-5 items-center">
+          <div className=" h-full flex flex-col text-center items-center gap-5  mb-5">
+            <h6 className="text-ma-text-secondary dark:text-ma-off-white text-2xl font-bold text-ellipsis line-clamp-5 leading-tight overflow-hidden">
               {jumbotronDetails?.mainJumbotron.main_jumbotron_title}
             </h6>
-            <p className=" text-xs text-ma-text-primary font-medium text-ellipsis line-clamp-3">
+            <p className=" text-sm text-ma-text-primary font-medium text-ellipsis line-clamp-3">
               {jumbotronDetails?.mainJumbotron.main_jumbotron_text}
             </p>
             <Link
               href={`/shop`}
-              className=" h-8 w-24 flex items-center justify-center text-xs text-ma-white font-bold uppercase bg-ma-light-blue mt-2 "
+              className=" h-14 w-36 flex items-center justify-center text text-ma-white font-bold uppercase bg-ma-light-blue mt-2 "
             >
               {jumbotronDetails?.mainJumbotron.main_jumbotron_cta}
             </Link>
           </div>
+
           <Image
             src={jumbotronDetails?.mainJumbotron.main_jumbotron_image.media_details.sizes.full.source_url || ""}
             alt={jumbotronDetails?.mainJumbotron.main_jumbotron_image.alt_text || ""}
             height={280}
             width={243}
-            className="absolute bottom-0 right-4 max-w-[50%] w-auto h-5/6"
+            className="w-[75%]  -mb-4"
           />
         </div>
+
         <div ref={offerMobile2} className=" bg-[#012F6B]  p-4 h-44 w-full shrink-0 flex flex-col items-center justify-between">
           <div className="flex flex-col items-center gap-2 ">
             <Image
@@ -157,9 +160,11 @@ const Offers: React.FC<{
             {jumbotronDetails?.topDeals.top_deals_cta}
           </Link>
         </div>
-        <div ref={offerMobile3} className="  h-44 w-full shrink-0 bg-[#DFE3E4] p-4 relative ">
-          <div className="w-36 flex flex-col justify-between h-full">
-            <h6 className=" text-xl font-bold line-clamp-3 overflow-hidden text-ellipsis">Save Big Money on TV&apos;s</h6>
+
+        <div ref={offerMobile3} className="  w-full shrink-0 bg-[#DFE3E4] p-4 relative ">
+          <Image src={"/images/homepage-tv.webp"} alt={data[2]?.product?.images[0].alt} height={100} width={132} className=" w-1/2 mx-auto" />
+          <div className="w-full flex justify-between h-full">
+            <h6 className=" text-xl font-bold line-clamp-3 overflow-hidden text-ellipsis w-36">Save Big Money on TV&apos;s</h6>
             <div className="">
               <span className=" font-medium text-[10px] text-ma-text-primary">Starting from as low as</span>
               <div className="flex items-center gap-3">
@@ -168,13 +173,6 @@ const Offers: React.FC<{
               </div>
             </div>
           </div>
-          <Image
-            src={"/images/homepage-tv.webp"}
-            alt={data[2]?.product?.images[0].alt}
-            height={100}
-            width={132}
-            className="absolute  right-5 top-1/2 transform -translate-y-1/2 max-w-[200px]"
-          />
         </div>
       </div>
     </>
