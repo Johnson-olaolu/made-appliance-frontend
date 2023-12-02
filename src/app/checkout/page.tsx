@@ -3,6 +3,7 @@ import FormTextArea from "@/components/form/FormTextArea";
 import FormTextInput from "@/components/form/FormTextInput";
 import { RootState } from "@/store/appSlice";
 import { formatAmount } from "@/utils/misc";
+import { useFormik } from "formik";
 import Link from "next/link";
 import React, { useEffect, useMemo } from "react";
 import { FiChevronRight } from "react-icons/fi";
@@ -25,6 +26,23 @@ const CheckoutPage = () => {
       total,
     };
   }, [cart]);
+
+  const checkoutFormik = useFormik({
+    initialValues: {
+      billing_first_name: "",
+      billing_last_name: "",
+      billing_company: "",
+      billing_country: "",
+      billing_address_1: "",
+      billing_address_2: "",
+      billing_city: "",
+      billing_state: "",
+      billing_postcode: "",
+      billing_phone: "",
+      billing_email: "",
+    },
+    onSubmit: (values) => {},
+  });
   return (
     <main className=" bg-ma-white dark:bg-ma-grey ">
       <div className="max-w-6xl  px-2  sm:px-0 mx-auto pt-0 pb-16 sm:border-t-2 border-[#AEAEAE1A]">
@@ -43,7 +61,7 @@ const CheckoutPage = () => {
           <h1 className=" font-semibold text-2xl dark:text-ma-white text-ma-grey pb-4 border-b-2 border-[#AEAEAE1A]">Billing Details</h1>
           <div className="flex items-start gap-8 mt-14">
             <div className=" flex-grow ">
-              <form action="#">
+              <form onSubmit={checkoutFormik.handleSubmit}>
                 <div className="space-y-5">
                   <div className=" grid grid-cols-2 gap-5">
                     <FormTextInput label="First Name" name="" />
