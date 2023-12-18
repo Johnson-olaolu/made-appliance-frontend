@@ -1,0 +1,34 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/*Switch*/
+.switch-container {
+  @apply h-6 w-12 rounded-l-full rounded-r-full bg-gray-200 relative cursor-pointer;
+  box-shadow: inset -1px 1px 5px rgb(0 0 0 / 0.2);
+}
+.switch-container.dark {
+  background-color: rgb(50 50 50);
+  box-shadow: inset -1px 1px 5px rgb(200 200 200 / 0.2);
+}
+
+.switch-child {
+  @apply h-4 w-4 rounded-full   absolute bg-ma-white;
+  box-shadow: 2px 0px 3px rgb(0 0 0 / 0.2);
+  top: 50%;
+  left: 4px;
+  right: auto;
+  transform: translateY(-50%);
+}
+
+.switch-container.dark .switch-child {
+  left: auto;
+  right: 4px;
+  box-shadow: -2px 0px 3px rgb(200 200 200 / 0.2);
+  @apply bg-ma-black;
+}
+
+/* Indicator Circle  */
+.indicator-circle {
+  @apply h-[22px] w-[22px] rounded-full flex items-center justify-center text-ma-white  text-xs bg-[#e52e06] leading-none absolute  -right-2 -bottom-2 top-auto left-auto font-bold pt-[2px];
+}
