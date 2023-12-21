@@ -44,7 +44,9 @@ const HeaderCart = () => {
     <div onMouseEnter={() => ctx.open()} onMouseLeave={() => ctx.close()} ref={wrapperRef} className="relative">
       <div className="relative hover:text-ma-blue">
         <BiShoppingBag role="button" className=" " size={28} />
-        <span className="indicator-circle">{cart.length}</span>
+        <div className="indicator-circle">
+          <span>{cart.length}</span>
+        </div>
       </div>
       <div ref={dropdownRef} className=" w-[320px] bg-ma-white absolute right-0 top-0 translate-y-10 hidden shadow-lg">
         {cart.length > 0 ? <ViewCart /> : <p className=" p-5 text-lg font-medium text-ma-primary2">Your Cart is Currently empty</p>}

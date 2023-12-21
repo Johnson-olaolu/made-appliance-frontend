@@ -9,8 +9,10 @@ import HeaderUser from "./components/user";
 import HeaderSearchBar from "./components/HeaderSearchBar";
 import HeaderMenu from "./components/menu";
 import gsap from "gsap";
+import MobileMenu from "./components/mobile-menu";
 
 const Header: React.FC = () => {
+  const [isSticky, setIsSticky] = useState(false);
   const [ctx] = useState(gsap.context(() => {}));
 
   const menuRef = useRef<HTMLDivElement>(null);
@@ -42,16 +44,20 @@ const Header: React.FC = () => {
         boxShadow: "none",
         duration: 0,
       });
+      // menuRef;
     });
     // menuRef.current
     const handleScroll = () => {
       if (window.scrollY > 44) {
         if (menuRef.current?.style.position !== "fixed") {
           ctx.addSticky();
+          setIsSticky(true);
         }
       } else {
         if (menuRef.current?.style.position === "fixed") {
           ctx.removeSticky();
+          setIsSticky(false);
+          menuRef.current.style.transform = "";
         }
       }
     };
@@ -65,7 +71,7 @@ const Header: React.FC = () => {
   }, [ctx]);
   return (
     <header>
-      <div className=" border-b border-[#dedfe2]">
+      <div className=" hidden lg:block border-b border-[#dedfe2]">
         <div className=" max-w-7xl mx-auto px-4 py-2  flex justify-between">
           <p className="">We are open with limited hours and staff</p>
           <div className=" flex gap-5">
@@ -85,17 +91,16 @@ const Header: React.FC = () => {
           </div>
         </div>
       </div>
-      <div ref={menuRef} className="">
-        <div className=" max-w-7xl mx-auto px-4 py-2  flex justify-between items-center">
-          <Image src={"/images/MADE-APPLIANCE-7.png"} height={120} width={472} alt="" className=" h-14 w-auto" />
-          <HeaderMenu />
-          <div className=" flex items-center gap-7">
+      <div ref={menuRef} className=" relative">
+        <div className=" max-w-3xl lg:max-w-7xl mx-auto px-4 py-2  flex justify-between items-center gap-6 h-24">
+          <Image src={"/images/MADE-APPLIANCE-7.png"} height={120} width={472} alt="" className=" lg:h-14 w-auto max-w-[50%]" />
+          <HeaderMenu isSticky={isSticky} />
+          <div className=" flex items-center gap-3 max-w-[136px]  sm:max-w-[200px] lg:max-w-[440px] flex-grow justify-between">
             <HeaderSearchBar />
-            <div className=" flex items-center gap-7">
-              <HeaderLike />
-              <HeaderCart />
-              <HeaderUser />
-            </div>
+            <HeaderLike />
+            <HeaderCart />
+            <HeaderUser />
+            <MobileMenu />
           </div>
         </div>
       </div>

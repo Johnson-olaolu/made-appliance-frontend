@@ -27,7 +27,7 @@ const tempCurrencies = [
   },
 ];
 
-const CurrencySelector: React.FC = () => {
+const CurrencySelector: React.FC<{ isMobile?: boolean }> = ({ isMobile = false }) => {
   const currency = useSelector((state: RootState) => state.app.currency);
   const dispatch = useDispatch();
   const wrapperRef = useRef<HTMLDivElement>(null);
@@ -36,6 +36,7 @@ const CurrencySelector: React.FC = () => {
 
   const handleLanguageChange = (lang: string) => {
     dispatch(changeCurrency(lang));
+    ctx.close();
   };
   useLayoutEffect(() => {
     ctx.add("open", () => {
@@ -67,7 +68,7 @@ const CurrencySelector: React.FC = () => {
   }, [ctx]);
   return (
     <div onMouseEnter={() => ctx.open()} onMouseLeave={() => ctx.close()} ref={wrapperRef} className=" relative">
-      <div className="relative flex items-center gap-1 font-bold text-sm cursor-pointer">
+      <div className={`${isMobile ? " text-ma-white gap-3" : ""} relative flex items-center gap-1 font-bold text-sm cursor-pointer`}>
         <p className="">{currency}</p> <FaChevronDown size={12} />
       </div>
       <div ref={dropdownRef} className=" rounded-md  bg-ma-white shadow-lg py-5 w-[200px]  absolute left-0 top-0 translate-y-10 hidden z-10">

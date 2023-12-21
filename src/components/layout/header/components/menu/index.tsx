@@ -7,7 +7,8 @@ import MainMenu from "./components/main-menu";
 import BlogMenu from "./components/blog-menu";
 import PagesMenu from "./components/pages-menu";
 
-const HeaderMenu = () => {
+const HeaderMenu: React.FC<{ isSticky: boolean }> = (props) => {
+  const { isSticky } = props;
   const menu1WrapperRef = useRef<HTMLLIElement>(null);
   const menu1DropdownRef = useRef<HTMLDivElement>(null);
   const menu2WrapperRef = useRef<HTMLLIElement>(null);
@@ -49,11 +50,13 @@ const HeaderMenu = () => {
         menu2DropdownRef.current,
         {
           display: "block",
-          translateY: 168,
+          translateY: 124,
+          translateX: "-50%",
           opacity: 0,
         },
         {
-          translateY: 128,
+          translateY: 84,
+          translateX: "-50%",
           opacity: 1,
           duration: 0.3,
         }
@@ -61,7 +64,7 @@ const HeaderMenu = () => {
     });
     ctx.add("closeMenu2", () => {
       gsap.to(menu2DropdownRef.current, {
-        translateY: 168,
+        translateY: isSticky ? 124 : 168,
         opacity: 0,
         display: "none",
       });
@@ -118,10 +121,10 @@ const HeaderMenu = () => {
     return () => {
       ctx.revert();
     };
-  }, [ctx]);
+  }, [ctx, isSticky]);
 
   return (
-    <ul className=" h-20 flex gap-5">
+    <ul className=" h-20 hidden gap-5 lg:flex">
       <li
         onMouseEnter={() => ctx.openMenu1()}
         onMouseLeave={() => ctx.closeMenu1()}
@@ -172,7 +175,7 @@ const HeaderMenu = () => {
       </li>
       <li className="flex items-center h-full">
         <Link href={"#"} className=" flex items-center  gap-1 ">
-          <span className="  font-medium">Contact</span>
+          <span className="font-medium">Contact</span>
         </Link>
       </li>
     </ul>

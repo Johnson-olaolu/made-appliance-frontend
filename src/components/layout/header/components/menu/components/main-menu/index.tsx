@@ -7,7 +7,7 @@ const MainMenu = React.forwardRef<HTMLDivElement>((props, ref) => {
     <div
       ref={ref}
       style={{ border: "1px solid rgb(0 0 0 / 0.02)" }}
-      className=" max-w-6xl w-full bg-ma-white p-8  shadow-lg absolute top-0 right-1/2 translate-x-1/2 transform translate-y-32 z-10"
+      className=" max-w-[95%] xl:max-w-6xl w-full bg-ma-white p-8  shadow-lg absolute top-0 left-1/2 -translate-x-1/2 transform translate-y-32 z-10 hidden"
     >
       <div className=" grid grid-cols-4">
         <div className="">
@@ -138,10 +138,10 @@ const MainMenu = React.forwardRef<HTMLDivElement>((props, ref) => {
         </div>
         <div className="">
           <Link href={"#"} className=" text-ma-primary2 font-bold mb-5 block">
-            Apple Headphones
+            Selected
           </Link>
           <div className=" flex flex-col items-center gap-4">
-            <Image src={""} height={220} width={200} alt="" />
+            <Image src={"/images/Refrigerator-Transparent.png"} height={220} width={200} alt="" />
             <div className=" flex flex-col items-center">
               <p className="">Drou watch ultra</p>
               <p className="flex items-center  gap-3 text-xs">
