@@ -71,7 +71,10 @@ const CurrencySelector: React.FC<{ isMobile?: boolean }> = ({ isMobile = false }
       <div className={`${isMobile ? " text-ma-white gap-3" : ""} relative flex items-center gap-1 font-bold text-sm cursor-pointer`}>
         <p className="">{currency}</p> <FaChevronDown size={12} />
       </div>
-      <div ref={dropdownRef} className=" rounded-md  bg-ma-white shadow-lg py-5 w-[200px]  absolute left-0 top-0 translate-y-10 hidden z-10">
+      <div
+        ref={dropdownRef}
+        className=" rounded-md  bg-ma-white dark:bg-ma-dark shadow-white shadow-lg py-5 w-[200px]  absolute left-0 top-0 translate-y-10 hidden z-10"
+      >
         <ul className="">
           {tempCurrencies.map((currency, idx) => (
             <li

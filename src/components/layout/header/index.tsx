@@ -23,7 +23,7 @@ const Header: React.FC = () => {
         {
           position: "fixed",
           width: "100%",
-          backgroundColor: "#fff",
+          // backgroundColor: "#fff",
           top: 0,
           left: 0,
           translateY: "-100%",
@@ -40,7 +40,7 @@ const Header: React.FC = () => {
     });
     ctx.add("removeSticky", () => {
       gsap.to(menuRef.current, {
-        position: "initial",
+        position: "relative",
         boxShadow: "none",
         duration: 0,
       });
@@ -71,27 +71,27 @@ const Header: React.FC = () => {
   }, [ctx]);
   return (
     <header>
-      <div className=" hidden lg:block border-b border-[#dedfe2]">
-        <div className=" max-w-7xl mx-auto px-4 py-2  flex justify-between">
+      <div className=" hidden lg:block border-b border-[#dedfe2] dark:border-ma-primary2 bg-ma-white dark:bg-ma-dark ">
+        <div className=" max-w-7xl mx-auto px-4 py-2  flex justify-between  dark:text-ma-white">
           <p className="">We are open with limited hours and staff</p>
           <div className=" flex gap-5">
             <CurrencySelector />
-            <div className="h-full w-px bg-[#dedfe2]"></div>
+            <div className="h-full w-px bg-[#dedfe2] dark:bg-ma-primary2"></div>
             <div className=" flex items-center gap-2 text-sm">
               <FaMapMarkerAlt />
               <p className=" text-sm font-medium">Store Location</p>
             </div>
-            <div className="h-full w-px bg-[#dedfe2]"></div>
+            <div className="h-full w-px bg-[#dedfe2] dark:bg-ma-primary2"></div>
             <div className=" flex items-center gap-2 text-sm">
               <FaPhone />
               <p className="  font-medium text-sm">(08)123 456 7890</p>
             </div>
-            <div className="h-full w-px bg-[#dedfe2]"></div>
+            <div className="h-full w-px bg-[#dedfe2] dark:bg-ma-primary2"></div>
             <Switch />
           </div>
         </div>
       </div>
-      <div ref={menuRef} className=" relative">
+      <div ref={menuRef} className=" relative bg-ma-white dark:bg-ma-dark ">
         <div className=" max-w-3xl lg:max-w-7xl mx-auto px-4 py-2  flex justify-between items-center gap-6 h-24">
           <Image src={"/images/MADE-APPLIANCE-7.png"} height={120} width={472} alt="" className=" lg:h-14 w-auto max-w-[50%]" />
           <HeaderMenu isSticky={isSticky} />

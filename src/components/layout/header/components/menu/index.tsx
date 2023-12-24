@@ -50,12 +50,12 @@ const HeaderMenu: React.FC<{ isSticky: boolean }> = (props) => {
         menu2DropdownRef.current,
         {
           display: "block",
-          translateY: 124,
+          translateY: 120,
           translateX: "-50%",
           opacity: 0,
         },
         {
-          translateY: 84,
+          translateY: 80,
           translateX: "-50%",
           opacity: 1,
           duration: 0.3,
@@ -64,7 +64,7 @@ const HeaderMenu: React.FC<{ isSticky: boolean }> = (props) => {
     });
     ctx.add("closeMenu2", () => {
       gsap.to(menu2DropdownRef.current, {
-        translateY: isSticky ? 124 : 168,
+        translateY: 120,
         opacity: 0,
         display: "none",
       });
@@ -124,7 +124,7 @@ const HeaderMenu: React.FC<{ isSticky: boolean }> = (props) => {
   }, [ctx, isSticky]);
 
   return (
-    <ul className=" h-20 hidden gap-5 lg:flex">
+    <ul className=" h-20 hidden gap-5 lg:flex text-ma-primary dark:text-ma-white">
       <li
         onMouseEnter={() => ctx.openMenu1()}
         onMouseLeave={() => ctx.closeMenu1()}

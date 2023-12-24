@@ -5,7 +5,7 @@ import React, { useEffect, useLayoutEffect, useRef, useState } from "react";
 import { FaChevronDown } from "react-icons/fa6";
 import { useDispatch, useSelector } from "react-redux";
 
-const Switch: React.FC<{ isMobile?: boolean }> = ({ isMobile = true }) => {
+const Switch: React.FC<{ isMobile?: boolean }> = ({ isMobile = false }) => {
   const dispatch = useDispatch();
   let theme = useSelector((state: RootState) => state.app.theme);
 

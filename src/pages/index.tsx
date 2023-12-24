@@ -1,9 +1,14 @@
 import Image from "next/image";
+import Jumbotron from "./_components/jumbotrun";
+import { jumbotronData } from "@/utils/constants";
+import TrendingCategory from "./_components/trending-categories";
 
 export default function Home() {
   return (
-    <div className=" px-4 min-h-[2000px]">
-      <div className=" h-[600px] bg-yellow-500"></div>
-    </div>
+    <main className=" space-y-20">
+      <Jumbotron data={jumbotronData} />
+      <TrendingCategory />
+      <div className=" h-screen w-full"></div>
+    </main>
   );
 }

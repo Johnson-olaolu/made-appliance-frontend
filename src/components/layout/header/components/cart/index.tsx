@@ -17,11 +17,11 @@ const HeaderCart = () => {
         dropdownRef.current,
         {
           display: "block",
-          translateY: 40,
+          translateY: 104,
           opacity: 0,
         },
         {
-          translateY: 20,
+          translateY: 64,
           opacity: 1,
           duration: 0.3,
         }
@@ -29,7 +29,7 @@ const HeaderCart = () => {
     });
     ctx.add("close", () => {
       gsap.to(dropdownRef.current, {
-        translateY: 40,
+        translateY: 104,
         opacity: 0,
         display: "none",
       });
@@ -41,8 +41,8 @@ const HeaderCart = () => {
   }, [ctx]);
 
   return (
-    <div onMouseEnter={() => ctx.open()} onMouseLeave={() => ctx.close()} ref={wrapperRef} className="relative">
-      <div className="relative hover:text-ma-blue">
+    <div onMouseEnter={() => ctx.open()} onMouseLeave={() => ctx.close()} ref={wrapperRef} className="relative h-20 flex items-center">
+      <div className="relative hover:text-ma-blue dark:text-ma-white dark:hover:text-ma-blue">
         <BiShoppingBag role="button" className=" " size={28} />
         <div className="indicator-circle">
           <span>{cart.length}</span>

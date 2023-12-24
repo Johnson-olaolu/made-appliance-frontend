@@ -92,7 +92,7 @@ const MobileMenu = () => {
                   <p className="  font-medium">(08)123 456 7890</p>
                 </div>
                 <CurrencySelector isMobile />
-                <Switch />
+                <Switch isMobile />
               </div>
             </div>
           </div>

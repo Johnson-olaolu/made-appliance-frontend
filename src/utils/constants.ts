@@ -27,3 +27,27 @@ export const screenSizes = {
   xl: 1280,
   "2xl": 1536,
 };
+
+export const jumbotronData = [
+  {
+    image: "/images/main-banner-01.webp",
+    prefix: "sale up to 30%",
+    title: "Apple watch series",
+    data: "Feature packed at a better value than ever powerful sensors to monitor your finess",
+    cta: "Shop Now",
+  },
+  {
+    image: "/images/main-banner-02.webp",
+    prefix: "sale up to 30%",
+    title: "Apple watch series",
+    data: "Feature packed at a better value than ever powerful sensors to monitor your finess",
+    cta: "Shop Now",
+  },
+  {
+    image: "/images/main-banner-03.webp",
+    prefix: "sale up to 30%",
+    title: "Apple watch series",
+    data: "Feature packed at a better value than ever powerful sensors to monitor your finess",
+    cta: "Shop Now",
+  },
+];
